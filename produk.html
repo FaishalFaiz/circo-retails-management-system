@@ -13,11 +13,10 @@
 </head>
 <body class="bg-slate-50 min-h-screen text-slate-800">
     <div id="sidebar-backdrop" class="fixed inset-0 bg-slate-900/40 z-40 hidden md:hidden"></div>
-    <aside id="sidebar" class="fixed top-0 bottom-0 left-0 bg-white border-r border-slate-100 z-50 flex flex-col"></aside>
-    <div id="sidebar-container"></div>
+    <aside id="sidebar"></aside>
 
-    <div id="main-content" class="md:ml-[230px] flex flex-col min-h-screen">
-        <header id="topbar-container" class="h-16 sticky top-0 z-30"></header>
+    <div id="main-content">
+        <header id="topbar" class="h-16 sticky top-0 z-30 bg-white border-b border-slate-100 shadow-xs"></header>
 
         <main class="flex-1 p-4 md:p-6 space-y-6">
             <!-- Header & Breadcrumb -->
@@ -36,13 +35,11 @@
             <div class="bg-white rounded-2xl border border-slate-200/80 p-4 md:p-6 shadow-sm space-y-5">
                 <!-- Toolbar Header: Search, Filter, Export, New Product -->
                 <div class="flex flex-col md:flex-row items-stretch md:items-center justify-between gap-3">
-                    <!-- Search Field -->
                     <div class="relative flex-1 max-w-md">
                         <input type="text" placeholder="Search for id, name product" class="w-full bg-white border border-slate-200 rounded-xl pl-4 pr-10 py-2.5 text-xs focus:outline-none focus:border-blue-500">
                         <img src="assets/icons/search.svg" alt="Search" class="w-4 h-4 absolute right-3 top-1/2 -translate-y-1/2 text-slate-400">
                     </div>
 
-                    <!-- Actions Buttons -->
                     <div class="flex items-center gap-2">
                         <button class="flex-1 md:flex-none flex items-center justify-center gap-2 px-4 py-2.5 border border-slate-200 rounded-xl text-xs font-semibold text-slate-700 hover:bg-slate-50">
                             <img src="assets/icons/_filter.svg" alt="Filter" class="w-4 h-4">
@@ -83,7 +80,6 @@
                             </tr>
                         </thead>
                         <tbody class="divide-y divide-slate-100 text-slate-700 font-medium">
-                            <!-- Row 1 -->
                             <tr class="hover:bg-slate-50/50">
                                 <td class="p-3 text-center"><input type="checkbox" class="rounded border-slate-300"></td>
                                 <td class="p-3">
@@ -108,7 +104,6 @@
                                     </div>
                                 </td>
                             </tr>
-                            <!-- Row 2 -->
                             <tr class="hover:bg-slate-50/50">
                                 <td class="p-3 text-center"><input type="checkbox" class="rounded border-slate-300"></td>
                                 <td class="p-3">
@@ -125,56 +120,6 @@
                                 <td class="p-3">234</td>
                                 <td class="p-3 text-slate-500">04/17/23 at 8:25 PM</td>
                                 <td class="p-3"><span class="badge-outofstock px-3 py-1 rounded-full text-[10px] font-bold">Out of Stock</span></td>
-                                <td class="p-3">
-                                    <div class="flex items-center justify-center gap-2 text-slate-400">
-                                        <button class="hover:text-blue-600"><img src="assets/icons/eye-open.svg" class="w-4 h-4" alt="View"></button>
-                                        <a href="produk-edit.html" class="hover:text-blue-600"><img src="assets/icons/edit-03.svg" class="w-4 h-4" alt="Edit"></a>
-                                        <button class="hover:text-rose-600"><img src="assets/icons/delete-1.svg" class="w-4 h-4" alt="Delete"></button>
-                                    </div>
-                                </td>
-                            </tr>
-                            <!-- Row 3 -->
-                            <tr class="hover:bg-slate-50/50">
-                                <td class="p-3 text-center"><input type="checkbox" class="rounded border-slate-300"></td>
-                                <td class="p-3">
-                                    <div class="flex items-center gap-3">
-                                        <img src="assets/image/beras_3x.webp" alt="Story Honzo" class="w-10 h-10 object-contain rounded-lg border border-slate-100 bg-slate-50">
-                                        <div>
-                                            <p class="text-[10px] text-slate-400 font-mono">021231</p>
-                                            <p class="font-bold text-slate-800">Story Honzo (Cream)</p>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td class="p-3">$20.00</td>
-                                <td class="p-3">40</td>
-                                <td class="p-3">234</td>
-                                <td class="p-3 text-slate-500">04/17/23 at 8:25 PM</td>
-                                <td class="p-3"><span class="badge-available px-3 py-1 rounded-full text-[10px] font-bold">Available</span></td>
-                                <td class="p-3">
-                                    <div class="flex items-center justify-center gap-2 text-slate-400">
-                                        <button class="hover:text-blue-600"><img src="assets/icons/eye-open.svg" class="w-4 h-4" alt="View"></button>
-                                        <a href="produk-edit.html" class="hover:text-blue-600"><img src="assets/icons/edit-03.svg" class="w-4 h-4" alt="Edit"></a>
-                                        <button class="hover:text-rose-600"><img src="assets/icons/delete-1.svg" class="w-4 h-4" alt="Delete"></button>
-                                    </div>
-                                </td>
-                            </tr>
-                            <!-- Row 4 -->
-                            <tr class="hover:bg-slate-50/50">
-                                <td class="p-3 text-center"><input type="checkbox" class="rounded border-slate-300"></td>
-                                <td class="p-3">
-                                    <div class="flex items-center gap-3">
-                                        <img src="assets/image/taro_3x.webp" alt="Kanky" class="w-10 h-10 object-contain rounded-lg border border-slate-100 bg-slate-50">
-                                        <div>
-                                            <p class="text-[10px] text-slate-400 font-mono">021231</p>
-                                            <p class="font-bold text-slate-800">Kanky Kitadakate (Green)</p>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td class="p-3">$20.00</td>
-                                <td class="p-3">40</td>
-                                <td class="p-3">234</td>
-                                <td class="p-3 text-slate-500">04/17/23 at 8:25 PM</td>
-                                <td class="p-3"><span class="badge-available px-3 py-1 rounded-full text-[10px] font-bold">Available</span></td>
                                 <td class="p-3">
                                     <div class="flex items-center justify-center gap-2 text-slate-400">
                                         <button class="hover:text-blue-600"><img src="assets/icons/eye-open.svg" class="w-4 h-4" alt="View"></button>
@@ -253,10 +198,10 @@
                         </select>
 
                         <div class="flex items-center gap-1">
-                            <button class="w-8 h-8 rounded-lg border border-slate-200 flex items-center justify-center text-slate-400 hover:bg-slate-50 disabled:opacity-50">
+                            <button class="w-8 h-8 rounded-lg border border-slate-200 flex items-center justify-center text-slate-400">
                                 <i class="fa-solid fa-chevron-left text-[10px]"></i>
                             </button>
-                            <button class="w-8 h-8 rounded-lg border border-slate-200 flex items-center justify-center text-slate-600 hover:bg-slate-50">
+                            <button class="w-8 h-8 rounded-lg border border-slate-200 flex items-center justify-center text-slate-600">
                                 <i class="fa-solid fa-chevron-right text-[10px]"></i>
                             </button>
                         </div>
@@ -270,7 +215,6 @@
         $(document).ready(function() {
             initDashboardLayout('produk');
 
-            // Mobile Accordion Toggle
             $('.mobile-accordion-btn').on('click', function() {
                 const content = $(this).closest('.bg-white').find('.mobile-accordion-content');
                 content.toggleClass('hidden');

@@ -13,11 +13,10 @@
 </head>
 <body class="bg-slate-50 min-h-screen text-slate-800">
     <div id="sidebar-backdrop" class="fixed inset-0 bg-slate-900/40 z-40 hidden md:hidden"></div>
-    <aside id="sidebar" class="fixed top-0 bottom-0 left-0 bg-white border-r border-slate-100 z-50 flex flex-col"></aside>
-    <div id="sidebar-container"></div>
+    <aside id="sidebar"></aside>
 
-    <div id="main-content" class="md:ml-[230px] flex flex-col min-h-screen">
-        <header id="topbar-container" class="h-16 sticky top-0 z-30"></header>
+    <div id="main-content">
+        <header id="topbar" class="h-16 sticky top-0 z-30 bg-white border-b border-slate-100 shadow-xs"></header>
 
         <main class="flex-1 p-4 md:p-6 space-y-6">
             <!-- Header & Search -->
@@ -34,7 +33,6 @@
             <div class="max-w-3xl mx-auto bg-white p-5 md:p-8 rounded-2xl border border-slate-200/80 shadow-sm space-y-4">
                 <h2 class="text-base font-bold text-slate-900 mb-4">Pertanyaan Sering Diajukan (FAQ)</h2>
 
-                <!-- FAQ Item 1 -->
                 <div class="border border-slate-200 rounded-xl overflow-hidden">
                     <button class="faq-btn w-full p-4 text-left font-bold text-xs text-slate-800 bg-slate-50 hover:bg-slate-100/80 flex items-center justify-between">
                         <span>Bagaimana cara mencatat transaksi Kasbon pelanggan?</span>
@@ -45,7 +43,6 @@
                     </div>
                 </div>
 
-                <!-- FAQ Item 2 -->
                 <div class="border border-slate-200 rounded-xl overflow-hidden">
                     <button class="faq-btn w-full p-4 text-left font-bold text-xs text-slate-800 bg-slate-50 hover:bg-slate-100/80 flex items-center justify-between">
                         <span>Apakah bisa scan barcode menggunakan kamera HP?</span>
@@ -56,7 +53,6 @@
                     </div>
                 </div>
 
-                <!-- FAQ Item 3 -->
                 <div class="border border-slate-200 rounded-xl overflow-hidden">
                     <button class="faq-btn w-full p-4 text-left font-bold text-xs text-slate-800 bg-slate-50 hover:bg-slate-100/80 flex items-center justify-between">
                         <span>Bagaimana mengelola stok antara Gudang dan Toko Depan?</span>
