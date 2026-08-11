@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bantuan & FAQ - Circo</title>
+    <link rel="icon" type="image/svg+xml" href="assets/logo-icon.svg">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="components/dashboard.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="components/loader.js"></script>
+</head>
+<body class="bg-slate-50 min-h-screen text-slate-800">
+    <div id="sidebar-backdrop" class="fixed inset-0 bg-slate-900/40 z-40 hidden md:hidden"></div>
+    <aside id="sidebar" class="fixed top-0 bottom-0 left-0 bg-white border-r border-slate-100 z-50 flex flex-col"></aside>
+    <div id="sidebar-container"></div>
+
+    <div id="main-content" class="md:ml-[230px] flex flex-col min-h-screen">
+        <header id="topbar-container" class="h-16 sticky top-0 z-30"></header>
+
+        <main class="flex-1 p-4 md:p-6 space-y-6">
+            <!-- Header & Search -->
+            <div class="text-center max-w-2xl mx-auto py-4 space-y-3">
+                <h1 class="text-2xl md:text-3xl font-bold text-slate-900">Pusat Bantuan Circo</h1>
+                <p class="text-xs text-slate-500">Ada masalah atau kendala mengoperasikan sistem toko? Cari solusi pertanyaanmu di bawah.</p>
+                <div class="relative max-w-md mx-auto pt-2">
+                    <input type="text" placeholder="Cari pertanyaan (misal: kasbon, tambah produk)..." class="w-full bg-white border border-slate-200 rounded-xl pl-4 pr-10 py-3 text-xs focus:outline-none focus:border-blue-500 shadow-xs">
+                    <img src="assets/icons/search.svg" class="w-4 h-4 absolute right-4 top-1/2 -translate-y-1/2 text-slate-400">
+                </div>
+            </div>
+
+            <!-- FAQ Accordions Card Container -->
+            <div class="max-w-3xl mx-auto bg-white p-5 md:p-8 rounded-2xl border border-slate-200/80 shadow-sm space-y-4">
+                <h2 class="text-base font-bold text-slate-900 mb-4">Pertanyaan Sering Diajukan (FAQ)</h2>
+
+                <!-- FAQ Item 1 -->
+                <div class="border border-slate-200 rounded-xl overflow-hidden">
+                    <button class="faq-btn w-full p-4 text-left font-bold text-xs text-slate-800 bg-slate-50 hover:bg-slate-100/80 flex items-center justify-between">
+                        <span>Bagaimana cara mencatat transaksi Kasbon pelanggan?</span>
+                        <i class="fa-solid fa-chevron-down text-slate-400 text-xs transition-transform duration-200"></i>
+                    </button>
+                    <div class="faq-content hidden p-4 text-xs text-slate-600 leading-relaxed border-t border-slate-100">
+                        Masuk ke menu <strong>Transaksi</strong>, lalu pilih metode pembayaran <strong>Unpaid / Kasbon</strong>. Anda juga bisa menautkan transaksi ini ke nama pelanggan tertentu yang terdaftar di menu <strong>Daftar Pembeli</strong>.
+                    </div>
+                </div>
+
+                <!-- FAQ Item 2 -->
+                <div class="border border-slate-200 rounded-xl overflow-hidden">
+                    <button class="faq-btn w-full p-4 text-left font-bold text-xs text-slate-800 bg-slate-50 hover:bg-slate-100/80 flex items-center justify-between">
+                        <span>Apakah bisa scan barcode menggunakan kamera HP?</span>
+                        <i class="fa-solid fa-chevron-down text-slate-400 text-xs transition-transform duration-200"></i>
+                    </button>
+                    <div class="faq-content hidden p-4 text-xs text-slate-600 leading-relaxed border-t border-slate-100">
+                        Ya! Circo mendukung fitur Camera Barcode Scanner yang bisa langsung memanfaatkan kamera smartphone atau webcam PC tanpa memerlukan alat barcode scanner fisik tambahan.
+                    </div>
+                </div>
+
+                <!-- FAQ Item 3 -->
+                <div class="border border-slate-200 rounded-xl overflow-hidden">
+                    <button class="faq-btn w-full p-4 text-left font-bold text-xs text-slate-800 bg-slate-50 hover:bg-slate-100/80 flex items-center justify-between">
+                        <span>Bagaimana mengelola stok antara Gudang dan Toko Depan?</span>
+                        <i class="fa-solid fa-chevron-down text-slate-400 text-xs transition-transform duration-200"></i>
+                    </button>
+                    <div class="faq-content hidden p-4 text-xs text-slate-600 leading-relaxed border-t border-slate-100">
+                        Di menu <strong>Produk</strong>, Anda dapat mengatur Dual-Location Tracking untuk memantau sisa stok fisik yang berada di etalase toko depan dan yang masih tersimpan di gudang penyimpanan.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contact Support Box -->
+            <div class="max-w-3xl mx-auto bg-blue-600 text-white p-6 rounded-2xl flex flex-col sm:flex-row items-center justify-between gap-4 shadow-lg shadow-blue-500/20">
+                <div>
+                    <h3 class="text-base font-bold">Masih butuh bantuan?</h3>
+                    <p class="text-xs text-blue-100 mt-1">Tim Customer Support Circo siap membantumu 24/7</p>
+                </div>
+                <a href="#" class="px-6 py-3 bg-white text-blue-600 hover:bg-blue-50 rounded-xl text-xs font-bold whitespace-nowrap shadow transition-colors">
+                    Hubungi WhatsApp Support
+                </a>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            initDashboardLayout('bantuan');
+
+            $('.faq-btn').on('click', function() {
+                const content = $(this).next('.faq-content');
+                content.toggleClass('hidden');
+                $(this).find('i').toggleClass('rotate-180');
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,108 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #F8FAFC;
+}
+
+/* Sidebar transition & collapsed styling */
+#sidebar {
+    width: 230px;
+    transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1), transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+#main-content {
+    transition: margin-left 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+#sidebar.collapsed {
+    width: 70px;
+}
+
+#sidebar.collapsed .sidebar-label,
+#sidebar.collapsed .sidebar-logo-full {
+    display: none !important;
+}
+
+#sidebar.collapsed .sidebar-logo-icon {
+    display: block !important;
+}
+
+#sidebar.collapsed .sidebar-toggle-icon {
+    transform: rotate(180deg);
+}
+
+#sidebar.collapsed #produk-submenu {
+    display: none !important;
+}
+
+#sidebar.collapsed .sidebar-nav-item {
+    justify-content: center;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+#sidebar.collapsed .store-card {
+    justify-content: center;
+    padding: 0.5rem;
+}
+
+/* Mobile responsive sidebar overlay */
+@media (max-width: 767px) {
+    #sidebar {
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        z-index: 50;
+        transform: translateX(-100%);
+        width: 260px !important;
+    }
+    
+    #sidebar.mobile-open {
+        transform: translateX(0);
+    }
+    
+    #main-content {
+        margin-left: 0 !important;
+    }
+}
+
+/* Custom Status Badges */
+.badge-available, .badge-success {
+    background-color: #DCFCE7;
+    color: #16A34A;
+}
+
+.badge-outofstock, .badge-danger {
+    background-color: #FEE2E2;
+    color: #DC2626;
+}
+
+.badge-shipping {
+    background-color: #F3E8FF;
+    color: #9333EA;
+}
+
+.badge-paid {
+    background-color: #DCFCE7;
+    color: #16A34A;
+}
+
+.badge-unpaid {
+    background-color: #FEF3C7;
+    color: #D97706;
+}
+
+.badge-cancelled {
+    background-color: #FEE2E2;
+    color: #DC2626;
+}
+
+/* Table Card Styling */
+.table-card {
+    background: #FFFFFF;
+    border-radius: 1rem;
+    border: 1px solid #E2E8F0;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.02);
+}

@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Circo</title>
+    <link rel="icon" type="image/svg+xml" href="assets/logo-icon.svg">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="components/dashboard.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="components/loader.js"></script>
+</head>
+<body class="bg-slate-50 min-h-screen text-slate-800">
+    <!-- Backdrop for Mobile Sidebar -->
+    <div id="sidebar-backdrop" class="fixed inset-0 bg-slate-900/40 z-40 hidden md:hidden"></div>
+
+    <!-- Sidebar Container -->
+    <aside id="sidebar" class="fixed top-0 bottom-0 left-0 bg-white border-r border-slate-100 z-50 flex flex-col"></aside>
+    <div id="sidebar-container"></div>
+
+    <!-- Main Workspace -->
+    <div id="main-content" class="md:ml-[230px] flex flex-col min-h-screen">
+        <!-- Topbar Container -->
+        <header id="topbar-container" class="h-16 sticky top-0 z-30"></header>
+
+        <!-- Main Dashboard Content -->
+        <main class="flex-1 p-4 md:p-6 space-y-6">
+            <!-- Page Title & Breadcrumb -->
+            <div>
+                <h1 class="text-xl md:text-2xl font-bold text-slate-900">Dashboard</h1>
+                <p class="text-xs text-slate-400 mt-0.5 font-medium">Dashboard</p>
+            </div>
+
+            <!-- Top Grid Layout: 3 Columns on Large Desktop -->
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-5">
+                <!-- Left 2-Column Container -->
+                <div class="lg:col-span-2 space-y-5">
+                    <!-- Sales Target Card -->
+                    <div class="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-sm space-y-3">
+                        <h3 class="text-xs font-bold text-slate-800">Sales Target</h3>
+                        <div class="flex items-center justify-between text-[11px] text-slate-400 font-medium">
+                            <span>In Progress</span>
+                            <span>Sales Target</span>
+                        </div>
+                        <div class="flex items-center justify-between font-bold text-slate-900 text-sm md:text-base">
+                            <span>$231,032,444</span>
+                            <span class="text-slate-500 font-normal">$500,000,00</span>
+                        </div>
+                        <!-- Progress Bar Custom -->
+                        <div class="w-full bg-slate-100 h-3 rounded-full overflow-hidden relative">
+                            <div class="bg-blue-600 h-full w-[46%] rounded-full relative">
+                                <span class="absolute right-0 top-1/2 -translate-y-1/2 w-4 h-4 bg-slate-300 border-2 border-white rounded-full shadow"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Your Sales This Year (Chart SVG Card) -->
+                    <div class="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-sm space-y-4">
+                        <div class="flex items-center justify-between">
+                            <h3 class="text-xs font-bold text-slate-800">Your Sales this year</h3>
+                            <a href="#" class="text-[11px] font-semibold text-slate-500 hover:text-blue-600 flex items-center gap-1">
+                                Show All <img src="assets/icons/arrow-up-right.svg" alt="Arrow" class="w-3 h-3">
+                            </a>
+                        </div>
+                        
+                        <!-- Chart Legend -->
+                        <div class="flex items-center gap-4 text-[10px] text-slate-500 font-medium">
+                            <div class="flex items-center gap-1.5">
+                                <span class="w-2.5 h-2.5 bg-lime-400 rounded-xs"></span>
+                                <span>Average Sale Value</span>
+                            </div>
+                            <div class="flex items-center gap-1.5">
+                                <span class="w-2.5 h-2.5 bg-blue-600 rounded-xs"></span>
+                                <span>Average item persale</span>
+                            </div>
+                        </div>
+
+                        <!-- Chart Image container -->
+                        <div class="relative w-full overflow-x-auto">
+                            <img src="assets/image/Chart.svg" alt="Sales Chart" class="w-full min-w-[500px] h-auto object-contain py-2">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Column Container: Metrics Cards & Transaksi Terakhir -->
+                <div class="space-y-5">
+                    <!-- 4 Metric Cards (2x2 Grid) -->
+                    <div class="grid grid-cols-2 gap-3">
+                        <!-- Total Laba Bersih (Blue Card) -->
+                        <div class="bg-blue-600 text-white p-4 rounded-2xl shadow-md flex flex-col justify-between h-32 relative overflow-hidden">
+                            <div class="flex items-center justify-between">
+                                <span class="text-[11px] font-medium opacity-90">Total Laba Bersih</span>
+                                <img src="assets/icons/arrow-up-right.svg" alt="Detail" class="w-3.5 h-3.5 invert opacity-80">
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-bold">$81.000</h4>
+                                <div class="flex items-center gap-1 text-[10px] text-lime-300 mt-0.5">
+                                    <i class="fa-solid fa-arrow-trend-up"></i>
+                                    <span>10.6% From last week</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Total Pelanggan -->
+                        <div class="bg-white p-4 rounded-2xl border border-slate-200/80 shadow-sm flex flex-col justify-between h-32">
+                            <div class="flex items-center justify-between">
+                                <span class="text-[11px] font-semibold text-slate-700">Total Pelanggan</span>
+                                <img src="assets/icons/arrow-up-right.svg" alt="Detail" class="w-3.5 h-3.5">
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-bold text-blue-600">5.000</h4>
+                                <div class="flex items-center gap-1 text-[10px] text-emerald-600 mt-0.5">
+                                    <i class="fa-solid fa-arrow-trend-up"></i>
+                                    <span>1.5% From last week</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Total Transaksi -->
+                        <div class="bg-white p-4 rounded-2xl border border-slate-200/80 shadow-sm flex flex-col justify-between h-32">
+                            <div class="flex items-center justify-between">
+                                <span class="text-[11px] font-semibold text-slate-700">Total Transaksi</span>
+                                <img src="assets/icons/arrow-up-right.svg" alt="Detail" class="w-3.5 h-3.5">
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-bold text-blue-600">12.000</h4>
+                                <div class="flex items-center gap-1 text-[10px] text-emerald-600 mt-0.5">
+                                    <i class="fa-solid fa-arrow-trend-up"></i>
+                                    <span>3.6% From last week</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Total Product -->
+                        <div class="bg-white p-4 rounded-2xl border border-slate-200/80 shadow-sm flex flex-col justify-between h-32">
+                            <div class="flex items-center justify-between">
+                                <span class="text-[11px] font-semibold text-slate-700">Total Product</span>
+                                <img src="assets/icons/arrow-up-right.svg" alt="Detail" class="w-3.5 h-3.5">
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-bold text-blue-600">5.000</h4>
+                                <div class="flex items-center gap-1 text-[10px] text-rose-500 mt-0.5">
+                                    <i class="fa-solid fa-arrow-trend-down"></i>
+                                    <span>1.5% From last week</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Transaksi Terakhir Card -->
+                    <div class="bg-blue-600 text-white p-5 rounded-2xl shadow-md space-y-4">
+                        <div class="flex items-center justify-between">
+                            <h3 class="text-xs font-bold">Transaksi Terakhir</h3>
+                            <img src="assets/icons/arrow-up-right.svg" alt="Detail" class="w-3.5 h-3.5 invert opacity-80">
+                        </div>
+
+                        <div class="space-y-3">
+                            <div class="flex items-center justify-between border-b border-blue-500/50 pb-2.5">
+                                <div>
+                                    <p class="text-xs font-bold">Sulastri</p>
+                                    <p class="text-[10px] opacity-80">21 Agustus 2026</p>
+                                </div>
+                                <span class="text-xs font-bold text-cyan-300">+Rp.50.000</span>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <p class="text-xs font-bold">Sulastri</p>
+                                    <p class="text-[10px] opacity-80">21 Agustus 2026</p>
+                                </div>
+                                <span class="text-xs font-bold text-cyan-300">+Rp.50.000</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bottom Grid Layout: Pie Chart Pertumbuhan Sektor & Tabel Produk Populer -->
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-5">
+                <!-- Pertumbuhan Sektor Produk Card -->
+                <div class="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-sm space-y-4">
+                    <div class="flex items-center justify-between">
+                        <h3 class="text-xs font-bold text-slate-800">Pertumbuhan Sektor Produk</h3>
+                        <a href="#" class="text-[11px] font-semibold text-slate-500 hover:text-blue-600 flex items-center gap-1">
+                            Lihat Semua <img src="assets/icons/arrow-up-right.svg" alt="Arrow" class="w-3 h-3">
+                        </a>
+                    </div>
+
+                    <!-- Pie Chart Visual via Custom CSS Conic-Gradient -->
+                    <div class="flex items-center justify-center py-4">
+                        <div class="relative w-48 h-48 rounded-full shadow-inner flex items-center justify-center"
+                             style="background: conic-gradient(#1E3A8A 0% 30%, #F97316 30% 45%, #84CC16 45% 80%, #2563EB 80% 100%);">
+                            <!-- Overlay Text Labels Inside Pie Segments -->
+                            <div class="absolute top-6 left-12 text-center text-white text-[10px] font-bold">
+                                30%<br>Bahan Pokok
+                            </div>
+                            <div class="absolute top-12 right-6 text-center text-white text-[10px] font-bold">
+                                15%<br>Jajanan
+                            </div>
+                            <div class="absolute bottom-8 left-8 text-center text-white text-[10px] font-bold">
+                                20%<br>Sabun
+                            </div>
+                            <div class="absolute bottom-6 right-10 text-center text-white text-[10px] font-bold">
+                                35%<br>Lainnya
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Produk Populer Table Card -->
+                <div class="lg:col-span-2 bg-white p-5 rounded-2xl border border-slate-200/80 shadow-sm space-y-4 overflow-hidden">
+                    <div class="flex items-center justify-between">
+                        <h3 class="text-xs font-bold text-slate-800">Produk Populer</h3>
+                        <a href="#" class="text-[11px] font-semibold text-slate-500 hover:text-blue-600 flex items-center gap-1">
+                            Show All <img src="assets/icons/arrow-up-right.svg" alt="Arrow" class="w-3 h-3">
+                        </a>
+                    </div>
+
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-left text-xs">
+                            <thead>
+                                <tr class="bg-slate-50 text-slate-600 border-b border-slate-100 font-semibold">
+                                    <th class="py-2.5 px-3 rounded-l-lg">Produk</th>
+                                    <th class="py-2.5 px-3">Harga</th>
+                                    <th class="py-2.5 px-3">Terjual</th>
+                                    <th class="py-2.5 px-3 rounded-r-lg">Kategori</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-slate-100 font-medium text-slate-700">
+                                <tr>
+                                    <td class="py-3 px-3">
+                                        <div class="flex items-center gap-3">
+                                            <img src="assets/image/minyak_3x.webp" alt="Minyak" class="w-9 h-9 object-contain rounded-lg border border-slate-100">
+                                            <div>
+                                                <p class="text-[10px] text-slate-400 font-mono">021231</p>
+                                                <p class="font-bold text-slate-800">Minyak Goreng 1 Liter</p>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="py-3 px-3">Rp.27.000</td>
+                                    <td class="py-3 px-3 font-semibold">3000</td>
+                                    <td class="py-3 px-3">
+                                        <span class="badge-available px-3 py-1 rounded-full text-[10px] font-bold">Bahan Pokok</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="py-3 px-3">
+                                        <div class="flex items-center gap-3">
+                                            <img src="assets/image/beras_3x.webp" alt="Beras" class="w-9 h-9 object-contain rounded-lg border border-slate-100">
+                                            <div>
+                                                <p class="text-[10px] text-slate-400 font-mono">021231</p>
+                                                <p class="font-bold text-slate-800">Beras Sania 1 Kg</p>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="py-3 px-3">Rp.30.000</td>
+                                    <td class="py-3 px-3 font-semibold">2311</td>
+                                    <td class="py-3 px-3">
+                                        <span class="badge-available px-3 py-1 rounded-full text-[10px] font-bold">Bahan Pokok</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="py-3 px-3">
+                                        <div class="flex items-center gap-3">
+                                            <img src="assets/image/sabun_3x.webp" alt="Sabun" class="w-9 h-9 object-contain rounded-lg border border-slate-100">
+                                            <div>
+                                                <p class="text-[10px] text-slate-400 font-mono">021231</p>
+                                                <p class="font-bold text-slate-800">Sabun Lifebuoy 1 Liter</p>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="py-3 px-3">Rp.20.000</td>
+                                    <td class="py-3 px-3 font-semibold">2111</td>
+                                    <td class="py-3 px-3">
+                                        <span class="badge-available px-3 py-1 rounded-full text-[10px] font-bold">Bahan Pokok</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="py-3 px-3">
+                                        <div class="flex items-center gap-3">
+                                            <img src="assets/image/taro_3x.webp" alt="Taro" class="w-9 h-9 object-contain rounded-lg border border-slate-100">
+                                            <div>
+                                                <p class="text-[10px] text-slate-400 font-mono">021231</p>
+                                                <p class="font-bold text-slate-800">Snack Taro 500 gr</p>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="py-3 px-3">Rp.15.000</td>
+                                    <td class="py-3 px-3 font-semibold">1661</td>
+                                    <td class="py-3 px-3">
+                                        <span class="bg-lime-100 text-lime-700 px-3 py-1 rounded-full text-[10px] font-bold">Snack & Chiki</span>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            initDashboardLayout('dashboard');
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tambah Produk - Circo</title>
+    <link rel="icon" type="image/svg+xml" href="assets/logo-icon.svg">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="components/dashboard.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="components/loader.js"></script>
+</head>
+<body class="bg-slate-50 min-h-screen text-slate-800">
+    <div id="sidebar-backdrop" class="fixed inset-0 bg-slate-900/40 z-40 hidden md:hidden"></div>
+    <aside id="sidebar" class="fixed top-0 bottom-0 left-0 bg-white border-r border-slate-100 z-50 flex flex-col"></aside>
+    <div id="sidebar-container"></div>
+
+    <div id="main-content" class="md:ml-[230px] flex flex-col min-h-screen">
+        <header id="topbar-container" class="h-16 sticky top-0 z-30"></header>
+
+        <main class="flex-1 p-4 md:p-6 space-y-6">
+            <!-- Header & Breadcrumb -->
+            <div>
+                <h1 class="text-xl md:text-2xl font-bold text-slate-900">Produk</h1>
+                <div class="flex items-center gap-2 text-xs text-slate-400 mt-1 font-medium">
+                    <span>Dashboard</span>
+                    <i class="fa-solid fa-chevron-right text-[10px]"></i>
+                    <span>Product</span>
+                    <i class="fa-solid fa-chevron-right text-[10px]"></i>
+                    <span class="text-blue-600 font-semibold">Tambah Produk</span>
+                </div>
+            </div>
+
+            <!-- Form Content Grid -->
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 items-start">
+                <!-- Left 2-Column: Form Information -->
+                <div class="lg:col-span-2 bg-white p-5 md:p-7 rounded-2xl border border-slate-200/80 shadow-sm space-y-6">
+                    <div>
+                        <h2 class="text-base font-bold text-slate-900">Informasi Produk</h2>
+                        <p class="text-xs text-slate-400 mt-0.5">Tambahkan produk baru sesuai informasi yang ada.</p>
+                    </div>
+
+                    <form class="space-y-4">
+                        <!-- SKU -->
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-700 mb-1.5">SKU</label>
+                            <input type="text" placeholder="Input no SKU" class="w-full px-4 py-3 text-xs bg-white border border-slate-200 rounded-xl focus:outline-none focus:border-blue-500">
+                        </div>
+
+                        <!-- Nama Produk -->
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-700 mb-1.5">Nama Produk</label>
+                            <input type="text" placeholder="Input product name" class="w-full px-4 py-3 text-xs bg-white border border-slate-200 rounded-xl focus:outline-none focus:border-blue-500">
+                        </div>
+
+                        <!-- Harga & Jumlah -->
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-xs font-semibold text-slate-700 mb-1.5">Harga</label>
+                                <input type="text" placeholder="Input Price" class="w-full px-4 py-3 text-xs bg-white border border-slate-200 rounded-xl focus:outline-none focus:border-blue-500">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-semibold text-slate-700 mb-1.5">/ Jumlah</label>
+                                <input type="text" placeholder="Color" class="w-full px-4 py-3 text-xs bg-white border border-slate-200 rounded-xl focus:outline-none focus:border-blue-500">
+                            </div>
+                        </div>
+
+                        <!-- Kategori Dropdown -->
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-700 mb-1.5">Kategori</label>
+                            <select class="w-full px-4 py-3 text-xs bg-white border border-slate-200 rounded-xl focus:outline-none focus:border-blue-500 text-slate-500">
+                                <option value="">Select product category</option>
+                                <option>Bahan Pokok</option>
+                                <option>Snack & Chiki</option>
+                                <option>Jajanan Tradisional</option>
+                                <option>Sabun & Pembersih</option>
+                            </select>
+                        </div>
+
+                        <!-- Stok Produk -->
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-700 mb-1.5">Stok Produk</label>
+                            <input type="number" placeholder="Input stock" class="w-full px-4 py-3 text-xs bg-white border border-slate-200 rounded-xl focus:outline-none focus:border-blue-500">
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Right Column: Image Upload Cards & Save Action -->
+                <div class="space-y-6">
+                    <div class="bg-white p-5 md:p-6 rounded-2xl border border-slate-200/80 shadow-sm space-y-4">
+                        <div>
+                            <h2 class="text-base font-bold text-slate-900">Gambar Produk</h2>
+                            <p class="text-[11px] text-slate-400 mt-0.5">
+                                <span class="text-blue-600 font-semibold">Note :</span> Format photos SVG, PNG, or JPG (Max size 4mb)
+                            </p>
+                        </div>
+
+                        <!-- 4 Image Upload Placeholders Grid -->
+                        <div class="grid grid-cols-2 gap-3">
+                            <label class="border-2 border-dashed border-blue-400/60 bg-blue-50/20 hover:bg-blue-50/50 rounded-xl p-4 flex flex-col items-center justify-center gap-2 cursor-pointer transition-colors h-28 text-center">
+                                <img src="assets/icons/image.svg" alt="Upload" class="w-6 h-6 text-blue-500">
+                                <span class="text-[10px] font-semibold text-blue-600">Photo 1</span>
+                                <input type="file" class="hidden">
+                            </label>
+                            <label class="border-2 border-dashed border-blue-400/60 bg-blue-50/20 hover:bg-blue-50/50 rounded-xl p-4 flex flex-col items-center justify-center gap-2 cursor-pointer transition-colors h-28 text-center">
+                                <img src="assets/icons/image.svg" alt="Upload" class="w-6 h-6 text-blue-500">
+                                <span class="text-[10px] font-semibold text-blue-600">Photo 2</span>
+                                <input type="file" class="hidden">
+                            </label>
+                            <label class="border-2 border-dashed border-blue-400/60 bg-blue-50/20 hover:bg-blue-50/50 rounded-xl p-4 flex flex-col items-center justify-center gap-2 cursor-pointer transition-colors h-28 text-center">
+                                <img src="assets/icons/image.svg" alt="Upload" class="w-6 h-6 text-blue-500">
+                                <span class="text-[10px] font-semibold text-blue-600">Photo 3</span>
+                                <input type="file" class="hidden">
+                            </label>
+                            <label class="border-2 border-dashed border-blue-400/60 bg-blue-50/20 hover:bg-blue-50/50 rounded-xl p-4 flex flex-col items-center justify-center gap-2 cursor-pointer transition-colors h-28 text-center">
+                                <img src="assets/icons/image.svg" alt="Upload" class="w-6 h-6 text-blue-500">
+                                <span class="text-[10px] font-semibold text-blue-600">Photo 4</span>
+                                <input type="file" class="hidden">
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <div class="flex justify-end">
+                        <a href="produk.html" class="w-full sm:w-auto px-8 py-3.5 bg-blue-600 hover:bg-blue-700 text-white rounded-xl text-xs font-semibold text-center shadow-lg shadow-blue-500/20 transition-all">
+                            Save Product
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            initDashboardLayout('produk');
+        });
+    </script>
+</body>
+</html>
