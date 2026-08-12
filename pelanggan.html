@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Customer - Circo</title>
+    <title>Pelanggan - Circo</title>
     <link rel="icon" type="image/svg+xml" href="assets/logo-icon.svg">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -21,11 +21,11 @@
         <main class="flex-1 p-4 md:p-6 space-y-6">
             <!-- Header & Breadcrumb -->
             <div>
-                <h1 class="text-xl md:text-2xl font-bold text-slate-900">Customer</h1>
+                <h1 class="text-xl md:text-2xl font-bold text-slate-900">Daftar Kasbon</h1>
                 <div class="flex items-center gap-2 text-xs text-slate-400 mt-1 font-medium">
-                    <span>Dashboard</span>
+                    <a href="dashboard.html">Dashboard</a>
                     <i class="fa-solid fa-chevron-right text-[10px]"></i>
-                    <span class="text-blue-600 font-semibold">Customer</span>
+                    <a href="" class="text-blue-600 font-semibold">Pelanggan Kasbon</a>
                 </div>
             </div>
 
@@ -48,7 +48,7 @@
                             <img src="assets/icons/download-2.svg" alt="Export" class="w-4 h-4">
                         </button>
                         <a href="pelanggan-tambah.html" class="flex-1 md:flex-none flex items-center justify-center gap-2 px-4 py-2.5 bg-blue-600 hover:bg-blue-700 text-white rounded-xl text-xs font-semibold shadow-md shadow-blue-500/20 transition-all">
-                            <span>Add Customer</span>
+                            <span>Tambah Pembeli</span>
                             <i class="fa-solid fa-plus text-xs"></i>
                         </a>
                     </div>
@@ -60,12 +60,11 @@
                         <thead>
                             <tr class="bg-slate-50 text-slate-600 font-semibold border-b border-slate-100">
                                 <th class="p-3 w-10 text-center"><input type="checkbox" class="rounded border-slate-300"></th>
-                                <th class="p-3">Name Customer</th>
-                                <th class="p-3">Contact</th>
-                                <th class="p-3">Purchases</th>
-                                <th class="p-3">Order QTY</th>
+                                <th class="p-3">Name Pelanggan</th>
+                                <th class="p-3">Kontak</th>
+                                <th class="p-3">Pembelian</th>
                                 <th class="p-3">Address</th>
-                                <th class="p-3 text-center">Action</th>
+                                <th class="p-3 text-center">Aksi</th>
                             </tr>
                         </thead>
                         <tbody class="divide-y divide-slate-100 text-slate-700 font-medium">
@@ -80,7 +79,6 @@
                                     <p class="text-slate-400 text-[11px]">+62 819 1314 1435</p>
                                 </td>
                                 <td class="p-3 font-semibold">$21.78</td>
-                                <td class="p-3">30 Order</td>
                                 <td class="p-3 text-slate-500 max-w-xs truncate">2972 Westheimer Rd. Santa Ana, Illinois 85486</td>
                                 <td class="p-3">
                                     <div class="flex items-center justify-center gap-2 text-slate-400">
@@ -101,7 +99,6 @@
                                     <p class="text-slate-400 text-[11px]">+62 819 1314 1435</p>
                                 </td>
                                 <td class="p-3 font-semibold">$21.78</td>
-                                <td class="p-3">30 Order</td>
                                 <td class="p-3 text-slate-500 max-w-xs truncate">4517 Washington Ave. Manchester, Kentucky 39495</td>
                                 <td class="p-3">
                                     <div class="flex items-center justify-center gap-2 text-slate-400">

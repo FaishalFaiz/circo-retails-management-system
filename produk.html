@@ -21,13 +21,13 @@
         <main class="flex-1 p-4 md:p-6 space-y-6">
             <!-- Header & Breadcrumb -->
             <div>
-                <h1 class="text-xl md:text-2xl font-bold text-slate-900">Product</h1>
+                <h1 class="text-xl md:text-2xl font-bold text-slate-900">Produk</h1>
                 <div class="flex items-center gap-2 text-xs text-slate-400 mt-1 font-medium">
-                    <span>Dashboard</span>
+                    <a href="dashboard.html">Dashboard</a>
                     <i class="fa-solid fa-chevron-right text-[10px]"></i>
-                    <span>Product</span>
+                    <a href="">Produk</a>
                     <i class="fa-solid fa-chevron-right text-[10px]"></i>
-                    <span class="text-blue-600 font-semibold">Sneakers</span>
+                    <span class="text-blue-600 font-semibold">Bahan Pokok</span>
                 </div>
             </div>
 
@@ -50,7 +50,7 @@
                             <img src="assets/icons/download-2.svg" alt="Export" class="w-4 h-4">
                         </button>
                         <a href="produk-tambah.html" class="flex-1 md:flex-none flex items-center justify-center gap-2 px-4 py-2.5 bg-blue-600 hover:bg-blue-700 text-white rounded-xl text-xs font-semibold shadow-md shadow-blue-500/20 transition-all">
-                            <span>New Product</span>
+                            <span>Tambah Produk</span>
                             <i class="fa-solid fa-plus text-xs"></i>
                         </a>
                     </div>
@@ -58,10 +58,10 @@
 
                 <!-- Category Tabs Pills -->
                 <div class="bg-slate-50 p-1.5 rounded-xl border border-slate-100 flex items-center gap-1 overflow-x-auto text-xs font-medium">
-                    <button class="px-5 py-2 bg-blue-100 text-blue-600 font-bold rounded-lg whitespace-nowrap shadow-xs">Sneakers (50)</button>
-                    <button class="px-5 py-2 text-slate-500 hover:text-slate-800 rounded-lg whitespace-nowrap">Jacket (26)</button>
-                    <button class="px-5 py-2 text-slate-500 hover:text-slate-800 rounded-lg whitespace-nowrap">T-Shirt (121)</button>
-                    <button class="px-5 py-2 text-slate-500 hover:text-slate-800 rounded-lg whitespace-nowrap">Bag (21)</button>
+                    <button class="px-5 py-2 bg-blue-100 text-blue-600 font-bold rounded-lg whitespace-nowrap shadow-xs">Bahan Pokok (50)</button>
+                    <button class="px-5 py-2 text-slate-500 hover:text-slate-800 rounded-lg whitespace-nowrap">Snack & Chiki (26)</button>
+                    <button class="px-5 py-2 text-slate-500 hover:text-slate-800 rounded-lg whitespace-nowrap">Sabun & Pembersih (121)</button>
+                    <button class="px-5 py-2 text-slate-500 hover:text-slate-800 rounded-lg whitespace-nowrap">Lainnya (21)</button>
                 </div>
 
                 <!-- Table for Desktop (Hidden on Mobile) -->
@@ -70,11 +70,10 @@
                         <thead>
                             <tr class="bg-slate-50 text-slate-600 font-semibold border-b border-slate-100">
                                 <th class="p-3 w-10 text-center"><input type="checkbox" class="rounded border-slate-300"></th>
-                                <th class="p-3">Product</th>
-                                <th class="p-3">Price</th>
-                                <th class="p-3">Size</th>
+                                <th class="p-3">Produk</th>
+                                <th class="p-3">Harga</th>
                                 <th class="p-3">QTY</th>
-                                <th class="p-3">Date</th>
+                                <th class="p-3">Tanggal</th>
                                 <th class="p-3">Status</th>
                                 <th class="p-3 text-center">Action</th>
                             </tr>
@@ -92,7 +91,6 @@
                                     </div>
                                 </td>
                                 <td class="p-3">$20.00</td>
-                                <td class="p-3">40</td>
                                 <td class="p-3">234</td>
                                 <td class="p-3 text-slate-500">04/17/23 at 8:25 PM</td>
                                 <td class="p-3"><span class="badge-available px-3 py-1 rounded-full text-[10px] font-bold">Available</span></td>
@@ -116,7 +114,6 @@
                                     </div>
                                 </td>
                                 <td class="p-3">$20.00</td>
-                                <td class="p-3">40</td>
                                 <td class="p-3">234</td>
                                 <td class="p-3 text-slate-500">04/17/23 at 8:25 PM</td>
                                 <td class="p-3"><span class="badge-outofstock px-3 py-1 rounded-full text-[10px] font-bold">Out of Stock</span></td>

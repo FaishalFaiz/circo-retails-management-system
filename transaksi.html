@@ -21,13 +21,11 @@
         <main class="flex-1 p-4 md:p-6 space-y-6">
             <!-- Header & Breadcrumb -->
             <div>
-                <h1 class="text-xl md:text-2xl font-bold text-slate-900">Orders</h1>
+                <h1 class="text-xl md:text-2xl font-bold text-slate-900"><Transaksi></Transaksi></h1>
                 <div class="flex items-center gap-2 text-xs text-slate-400 mt-1 font-medium">
-                    <span>Dashboard</span>
+                    <a href="dashboard.html">Dashboard</a>
                     <i class="fa-solid fa-chevron-right text-[10px]"></i>
-                    <span>Orders</span>
-                    <i class="fa-solid fa-chevron-right text-[10px]"></i>
-                    <span class="text-blue-600 font-semibold">All Orders</span>
+                    <a href="" class="text-blue-600 font-semibold">Transaksi</a>
                 </div>
             </div>
 
@@ -50,7 +48,7 @@
                             <img src="assets/icons/download-2.svg" alt="Export" class="w-4 h-4">
                         </button>
                         <button class="flex-1 md:flex-none flex items-center justify-center gap-2 px-4 py-2.5 bg-blue-600 hover:bg-blue-700 text-white rounded-xl text-xs font-semibold shadow-md shadow-blue-500/20 transition-all">
-                            <span>New Order</span>
+                            <span>Tambah Transaksi</span>
                             <i class="fa-solid fa-plus text-xs"></i>
                         </button>
                     </div>
@@ -58,10 +56,10 @@
 
                 <!-- Status Filter Pills -->
                 <div class="bg-slate-50 p-1.5 rounded-xl border border-slate-100 flex items-center gap-1 overflow-x-auto text-xs font-medium">
-                    <button class="px-5 py-2 bg-blue-100 text-blue-600 font-bold rounded-lg whitespace-nowrap shadow-xs">All Orders (441)</button>
-                    <button class="px-5 py-2 text-slate-500 hover:text-slate-800 rounded-lg whitespace-nowrap">Shipping (100)</button>
-                    <button class="px-5 py-2 text-slate-500 hover:text-slate-800 rounded-lg whitespace-nowrap">Completed (300)</button>
-                    <button class="px-5 py-2 text-slate-500 hover:text-slate-800 rounded-lg whitespace-nowrap">Cancel (41)</button>
+                    <button class="px-5 py-2 bg-blue-100 text-blue-600 font-bold rounded-lg whitespace-nowrap shadow-xs">Semua Transaksi (441)</button>
+                    <button class="px-5 py-2 text-slate-500 hover:text-slate-800 rounded-lg whitespace-nowrap">Selesai (90)</button>
+                    <button class="px-5 py-2 text-slate-500 hover:text-slate-800 rounded-lg whitespace-nowrap">Utang (14)</button>
+                    <button class="px-5 py-2 text-slate-500 hover:text-slate-800 rounded-lg whitespace-nowrap">Batal (41)</button>
                 </div>
 
                 <!-- Table Desktop View -->
