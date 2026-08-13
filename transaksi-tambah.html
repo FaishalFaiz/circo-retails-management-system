@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kasir Digital (POS) - Circo</title>
+    <link rel="icon" type="image/svg+xml" href="assets/logo-icon.svg">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="components/dashboard.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="components/loader.js"></script>
+</head>
+<body class="bg-slate-50 min-h-screen text-slate-800">
+    <div id="sidebar-backdrop" class="fixed inset-0 bg-slate-900/40 z-40 hidden md:hidden"></div>
+    <aside id="sidebar"></aside>
+
+    <div id="main-content">
+        <header id="topbar" class="h-16 sticky top-0 z-30 bg-white border-b border-slate-100 shadow-xs"></header>
+
+        <main class="flex-1 p-4 md:p-6 space-y-5">
+            <!-- Header Title & Action -->
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                <div>
+                    <h1 class="text-xl md:text-2xl font-bold text-slate-900">Kasir Digital (POS)</h1>
+                    <div class="flex items-center gap-2 text-xs text-slate-400 mt-1 font-medium">
+                        <span>Dashboard</span>
+                        <i class="fa-solid fa-chevron-right text-[10px]"></i>
+                        <span>Transaksi</span>
+                        <i class="fa-solid fa-chevron-right text-[10px]"></i>
+                        <span class="text-blue-600 font-semibold">Kasir POS Baru</span>
+                    </div>
+                </div>
+
+                <!-- Barcode Scanner Launcher Button -->
+                <button id="open-scanner-btn" class="px-4 py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl text-xs font-bold shadow-md shadow-emerald-500/20 flex items-center justify-center gap-2 transition-all">
+                    <i class="fa-solid fa-barcode text-sm"></i>
+                    <span>Scan Barcode Kamera</span>
+                </button>
+            </div>
+
+            <!-- Main POS Layout: Left Product Grid & Right Shopping Cart -->
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 items-start">
+                <!-- Left 2 Columns: Product Catalog Touch Grid -->
+                <div class="lg:col-span-2 space-y-4">
+                    <!-- Search Bar & Category Filter Pills -->
+                    <div class="bg-white p-4 rounded-2xl border border-slate-200/80 shadow-sm space-y-3">
+                        <div class="relative">
+                            <input type="text" id="pos-search" placeholder="Cari nama produk, SKU, atau ketik kode barcode..." class="w-full bg-slate-50 border border-slate-200 rounded-xl pl-4 pr-10 py-3 text-xs focus:outline-none focus:border-blue-500 focus:bg-white transition-colors">
+                            <img src="assets/icons/search.svg" alt="Search" class="w-4 h-4 absolute right-3 top-1/2 -translate-y-1/2 text-slate-400">
+                        </div>
+
+                        <!-- Category Filters -->
+                        <div class="flex items-center gap-1.5 overflow-x-auto text-xs font-medium pb-1">
+                            <button class="px-4 py-2 bg-blue-100 text-blue-600 font-bold rounded-lg whitespace-nowrap">Semua (142)</button>
+                            <button class="px-4 py-2 bg-slate-100 text-slate-600 hover:bg-slate-200 rounded-lg whitespace-nowrap">Bahan Pokok</button>
+                            <button class="px-4 py-2 bg-slate-100 text-slate-600 hover:bg-slate-200 rounded-lg whitespace-nowrap">Snack & Chiki</button>
+                            <button class="px-4 py-2 bg-slate-100 text-slate-600 hover:bg-slate-200 rounded-lg whitespace-nowrap">Sabun & Pembersih</button>
+                            <button class="px-4 py-2 bg-slate-100 text-slate-600 hover:bg-slate-200 rounded-lg whitespace-nowrap">Minuman</button>
+                        </div>
+                    </div>
+
+                    <!-- Products Grid -->
+                    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
+                        <!-- Product Item 1 -->
+                        <div class="add-to-cart-btn bg-white border border-slate-200/80 hover:border-blue-500 rounded-2xl p-3 shadow-xs hover:shadow-md transition-all cursor-pointer flex flex-col justify-between"
+                             data-name="Minyak Goreng Sania 1L" data-price="17500" data-img="assets/image/minyak_3x.webp">
+                            <div class="relative mb-2 flex justify-center items-center h-24 bg-slate-50 rounded-xl">
+                                <img src="assets/image/minyak_3x.webp" class="h-20 object-contain">
+                                <span class="absolute top-1 right-1 bg-emerald-100 text-emerald-700 font-bold text-[9px] px-2 py-0.5 rounded-full">Stok: 45</span>
+                            </div>
+                            <div>
+                                <p class="text-[10px] text-slate-400 font-mono">SKU-8991001</p>
+                                <p class="font-bold text-xs text-slate-800 line-clamp-1">Minyak Sania 1L</p>
+                                <p class="font-extrabold text-blue-600 text-xs mt-1">Rp 17.500</p>
+                            </div>
+                        </div>
+
+                        <!-- Product Item 2 -->
+                        <div class="add-to-cart-btn bg-white border border-slate-200/80 hover:border-blue-500 rounded-2xl p-3 shadow-xs hover:shadow-md transition-all cursor-pointer flex flex-col justify-between"
+                             data-name="Beras Sania Premium 5Kg" data-price="72000" data-img="assets/image/beras_3x.webp">
+                            <div class="relative mb-2 flex justify-center items-center h-24 bg-slate-50 rounded-xl">
+                                <img src="assets/image/beras_3x.webp" class="h-20 object-contain">
+                                <span class="absolute top-1 right-1 bg-amber-100 text-amber-700 font-bold text-[9px] px-2 py-0.5 rounded-full">Stok: 8</span>
+                            </div>
+                            <div>
+                                <p class="text-[10px] text-slate-400 font-mono">SKU-8991002</p>
+                                <p class="font-bold text-xs text-slate-800 line-clamp-1">Beras Sania 5Kg</p>
+                                <p class="font-extrabold text-blue-600 text-xs mt-1">Rp 72.000</p>
+                            </div>
+                        </div>
+
+                        <!-- Product Item 3 -->
+                        <div class="add-to-cart-btn bg-white border border-slate-200/80 hover:border-blue-500 rounded-2xl p-3 shadow-xs hover:shadow-md transition-all cursor-pointer flex flex-col justify-between"
+                             data-name="Sabun Lifebuoy 450ml" data-price="22500" data-img="assets/image/sabun_3x.webp">
+                            <div class="relative mb-2 flex justify-center items-center h-24 bg-slate-50 rounded-xl">
+                                <img src="assets/image/sabun_3x.webp" class="h-20 object-contain">
+                                <span class="absolute top-1 right-1 bg-emerald-100 text-emerald-700 font-bold text-[9px] px-2 py-0.5 rounded-full">Stok: 24</span>
+                            </div>
+                            <div>
+                                <p class="text-[10px] text-slate-400 font-mono">SKU-8991003</p>
+                                <p class="font-bold text-xs text-slate-800 line-clamp-1">Sabun Lifebuoy 450ml</p>
+                                <p class="font-extrabold text-blue-600 text-xs mt-1">Rp 22.500</p>
+                            </div>
+                        </div>
+
+                        <!-- Product Item 4 -->
+                        <div class="add-to-cart-btn bg-white border border-slate-200/80 hover:border-blue-500 rounded-2xl p-3 shadow-xs hover:shadow-md transition-all cursor-pointer flex flex-col justify-between"
+                             data-name="Snack Taro Net 65g" data-price="5500" data-img="assets/image/taro_3x.webp">
+                            <div class="relative mb-2 flex justify-center items-center h-24 bg-slate-50 rounded-xl">
+                                <img src="assets/image/taro_3x.webp" class="h-20 object-contain">
+                                <span class="absolute top-1 right-1 bg-emerald-100 text-emerald-700 font-bold text-[9px] px-2 py-0.5 rounded-full">Stok: 60</span>
+                            </div>
+                            <div>
+                                <p class="text-[10px] text-slate-400 font-mono">SKU-8991004</p>
+                                <p class="font-bold text-xs text-slate-800 line-clamp-1">Taro Net 65g</p>
+                                <p class="font-extrabold text-blue-600 text-xs mt-1">Rp 5.500</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Column: Shopping Cart & Checkout Panel -->
+                <div class="bg-white rounded-2xl border border-slate-200/80 shadow-sm p-4 md:p-5 space-y-4 sticky top-20">
+                    <div class="flex items-center justify-between border-b border-slate-100 pb-3">
+                        <div class="flex items-center gap-2">
+                            <i class="fa-solid fa-basket-shopping text-blue-600"></i>
+                            <h2 class="text-sm font-bold text-slate-900">Keranjang Belanja</h2>
+                        </div>
+                        <button id="clear-cart-btn" class="text-[11px] text-rose-500 hover:underline font-semibold">Bersihkan</button>
+                    </div>
+
+                    <!-- Customer Selector -->
+                    <div>
+                        <label class="block text-[11px] font-semibold text-slate-600 mb-1">Pilih Pelanggan / Kasbon</label>
+                        <select id="cart-customer-select" class="w-full px-3 py-2 text-xs bg-slate-50 border border-slate-200 rounded-xl font-medium focus:outline-none focus:border-blue-500">
+                            <option value="umum">Pembeli Umum (Tunai/QRIS)</option>
+                            <option value="kasbon1">Bu Sulastri (Warung Makan) - Limit Kasbon Rp 500.000</option>
+                            <option value="kasbon2">Pak Agus Prasetyo - Limit Kasbon Rp 300.000</option>
+                        </select>
+                    </div>
+
+                    <!-- Cart Item List Container -->
+                    <div id="cart-items-container" class="space-y-2.5 max-h-60 overflow-y-auto pr-1">
+                        <!-- Default Initial Cart Item 1 -->
+                        <div class="cart-item flex items-center justify-between p-2.5 bg-slate-50 rounded-xl border border-slate-100">
+                            <div class="flex items-center gap-2.5 min-w-0">
+                                <img src="assets/image/minyak_3x.webp" class="w-8 h-8 object-contain">
+                                <div class="min-w-0">
+                                    <p class="font-bold text-xs text-slate-800 truncate">Minyak Sania 1L</p>
+                                    <p class="text-[10px] text-slate-400 font-semibold">Rp 17.500</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <div class="flex items-center border border-slate-200 rounded-lg bg-white">
+                                    <button class="qty-minus px-2 py-0.5 text-xs text-slate-600 hover:bg-slate-100">-</button>
+                                    <span class="qty-val px-2 text-xs font-bold text-slate-800">2</span>
+                                    <button class="qty-plus px-2 py-0.5 text-xs text-slate-600 hover:bg-slate-100">+</button>
+                                </div>
+                                <span class="item-subtotal font-bold text-xs text-slate-900 w-16 text-right">Rp 35.000</span>
+                            </div>
+                        </div>
+
+                        <!-- Default Initial Cart Item 2 -->
+                        <div class="cart-item flex items-center justify-between p-2.5 bg-slate-50 rounded-xl border border-slate-100">
+                            <div class="flex items-center gap-2.5 min-w-0">
+                                <img src="assets/image/taro_3x.webp" class="w-8 h-8 object-contain">
+                                <div class="min-w-0">
+                                    <p class="font-bold text-xs text-slate-800 truncate">Taro Net 65g</p>
+                                    <p class="text-[10px] text-slate-400 font-semibold">Rp 5.500</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <div class="flex items-center border border-slate-200 rounded-lg bg-white">
+                                    <button class="qty-minus px-2 py-0.5 text-xs text-slate-600 hover:bg-slate-100">-</button>
+                                    <span class="qty-val px-2 text-xs font-bold text-slate-800">1</span>
+                                    <button class="qty-plus px-2 py-0.5 text-xs text-slate-600 hover:bg-slate-100">+</button>
+                                </div>
+                                <span class="item-subtotal font-bold text-xs text-slate-900 w-16 text-right">Rp 5.500</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Payment Method Tabs -->
+                    <div class="border-t border-slate-100 pt-3 space-y-3">
+                        <label class="block text-[11px] font-semibold text-slate-600">Metode Pembayaran</label>
+                        <div class="grid grid-cols-3 gap-2 text-center text-xs font-semibold">
+                            <button id="pay-tunai-btn" class="pay-method-btn py-2 bg-blue-100 text-blue-600 border border-blue-200 rounded-xl">Tunai</button>
+                            <button id="pay-qris-btn" class="pay-method-btn py-2 bg-slate-50 text-slate-600 border border-slate-200 rounded-xl hover:bg-slate-100">QRIS</button>
+                            <button id="pay-kasbon-btn" class="pay-method-btn py-2 bg-slate-50 text-slate-600 border border-slate-200 rounded-xl hover:bg-slate-100">Kasbon</button>
+                        </div>
+                    </div>
+
+                    <!-- Financial Breakdown Calculation -->
+                    <div class="bg-slate-50 p-3 rounded-xl space-y-1.5 text-xs">
+                        <div class="flex justify-between text-slate-500">
+                            <span>Subtotal</span>
+                            <span id="pos-subtotal" class="font-semibold text-slate-800">Rp 40.500</span>
+                        </div>
+                        <div class="flex justify-between text-slate-500">
+                            <span>Diskon Toko</span>
+                            <span class="text-slate-800 font-semibold">Rp 0</span>
+                        </div>
+                        <div class="flex justify-between text-slate-900 font-bold text-sm border-t border-slate-200/60 pt-1.5">
+                            <span>Total Bayar</span>
+                            <span id="pos-total" class="text-blue-600 font-extrabold">Rp 40.500</span>
+                        </div>
+                    </div>
+
+                    <!-- Checkout Button -->
+                    <a href="transaksi.html" class="w-full py-3.5 bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs rounded-xl flex items-center justify-center gap-2 shadow-lg shadow-blue-500/20 transition-all">
+                        <i class="fa-solid fa-check-circle"></i>
+                        <span>Proses Transaksi & Cetak Struk</span>
+                    </a>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Camera Barcode Scanner Modal Simulation -->
+    <div id="scanner-modal" class="fixed inset-0 bg-slate-900/80 z-50 flex items-center justify-center p-4 hidden">
+        <div class="bg-white rounded-2xl max-w-md w-full overflow-hidden shadow-2xl space-y-4">
+            <!-- Modal Header -->
+            <div class="p-4 bg-slate-900 text-white flex items-center justify-between">
+                <div class="flex items-center gap-2">
+                    <i class="fa-solid fa-camera text-emerald-400"></i>
+                    <h3 class="text-xs font-bold">Pemindai Barcode Kamera</h3>
+                </div>
+                <button id="close-scanner-btn" class="text-slate-400 hover:text-white">
+                    <i class="fa-solid fa-xmark text-base"></i>
+                </button>
+            </div>
+
+            <!-- Viewfinder Laser Simulation -->
+            <div class="px-6 py-2">
+                <div class="relative w-full h-48 bg-slate-950 rounded-xl overflow-hidden flex flex-col items-center justify-center border-2 border-emerald-500">
+                    <!-- Red Laser Animation Line -->
+                    <div class="w-full h-0.5 bg-rose-500 shadow-md shadow-rose-500 animate-pulse absolute top-1/2 -translate-y-1/2"></div>
+                    
+                    <i class="fa-solid fa-barcode text-slate-700 text-6xl opacity-30"></i>
+                    <p class="text-[10px] text-emerald-400 font-mono mt-3 z-10">Arahkan barcode ke kotak pemindai...</p>
+                </div>
+            </div>
+
+            <!-- Quick Barcode Sample Click -->
+            <div class="px-6 pb-6 space-y-2">
+                <p class="text-[11px] font-semibold text-slate-600">Simulasi Barcode Produk:</p>
+                <div class="grid grid-cols-2 gap-2 text-xs">
+                    <button class="sim-scan-btn p-2 bg-slate-100 hover:bg-blue-50 border border-slate-200 rounded-lg text-left" data-barcode="SKU-8991001">
+                        <p class="font-bold text-slate-800 text-[11px]">Minyak Sania</p>
+                        <p class="text-[9px] text-slate-400 font-mono">SKU-8991001</p>
+                    </button>
+                    <button class="sim-scan-btn p-2 bg-slate-100 hover:bg-blue-50 border border-slate-200 rounded-lg text-left" data-barcode="SKU-8991004">
+                        <p class="font-bold text-slate-800 text-[11px]">Taro Net 65g</p>
+                        <p class="text-[9px] text-slate-400 font-mono">SKU-8991004</p>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            initDashboardLayout('transaksi');
+
+            // Barcode Scanner Modal Toggle
+            $('#open-scanner-btn').on('click', function() {
+                $('#scanner-modal').removeClass('hidden');
+            });
+
+            $('#close-scanner-btn').on('click', function() {
+                $('#scanner-modal').addClass('hidden');
+            });
+
+            // Simulated Barcode Click Add
+            $('.sim-scan-btn').on('click', function() {
+                const code = $(this).data('barcode');
+                alert('Barcode terdeteksi: ' + code + '! Produk otomatis ditambahkan ke keranjang.');
+                $('#scanner-modal').addClass('hidden');
+            });
+
+            // Add Product Card Click to Cart
+            $('.add-to-cart-btn').on('click', function() {
+                const name = $(this).data('name');
+                const price = parseInt($(this).data('price'));
+                const img = $(this).data('img');
+
+                const cartHtml = `
+                    <div class="cart-item flex items-center justify-between p-2.5 bg-slate-50 rounded-xl border border-slate-100">
+                        <div class="flex items-center gap-2.5 min-w-0">
+                            <img src="${img}" class="w-8 h-8 object-contain">
+                            <div class="min-w-0">
+                                <p class="font-bold text-xs text-slate-800 truncate">${name}</p>
+                                <p class="text-[10px] text-slate-400 font-semibold">Rp ${price.toLocaleString('id-ID')}</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <div class="flex items-center border border-slate-200 rounded-lg bg-white">
+                                <button class="qty-minus px-2 py-0.5 text-xs text-slate-600 hover:bg-slate-100">-</button>
+                                <span class="qty-val px-2 text-xs font-bold text-slate-800">1</span>
+                                <button class="qty-plus px-2 py-0.5 text-xs text-slate-600 hover:bg-slate-100">+</button>
+                            </div>
+                            <span class="item-subtotal font-bold text-xs text-slate-900 w-16 text-right">Rp ${price.toLocaleString('id-ID')}</span>
+                        </div>
+                    </div>
+                `;
+
+                $('#cart-items-container').append(cartHtml);
+            });
+
+            // Clear Cart
+            $('#clear-cart-btn').on('click', function() {
+                $('#cart-items-container').empty();
+                $('#pos-subtotal').text('Rp 0');
+                $('#pos-total').text('Rp 0');
+            });
+
+            // Payment Methods Click
+            $('.pay-method-btn').on('click', function() {
+                $('.pay-method-btn').removeClass('bg-blue-100 text-blue-600 border-blue-200').addClass('bg-slate-50 text-slate-600 border-slate-200');
+                $(this).addClass('bg-blue-100 text-blue-600 border-blue-200').removeClass('bg-slate-50 text-slate-600 border-slate-200');
+            });
+        });
+    </script>
+</body>
+</html>
