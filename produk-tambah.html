@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tambah Produk - Circo</title>
+    <title>Tambah Produk & Restok - Circo</title>
     <link rel="icon" type="image/svg+xml" href="assets/logo-icon.svg">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -21,115 +21,191 @@
         <main class="flex-1 p-4 md:p-6 space-y-6">
             <!-- Header & Breadcrumb -->
             <div>
-                <h1 class="text-xl md:text-2xl font-bold text-slate-900">Produk</h1>
+                <h1 class="text-xl md:text-2xl font-bold text-slate-900">Kelola Produk & Stok</h1>
                 <div class="flex items-center gap-2 text-xs text-slate-400 mt-1 font-medium">
-                    <a href="dashboard.html">Dashboard</a>
+                    <span>Dashboard</span>
                     <i class="fa-solid fa-chevron-right text-[10px]"></i>
-                    <a href="produk.html">Produk</a>
+                    <span>Katalog Produk</span>
                     <i class="fa-solid fa-chevron-right text-[10px]"></i>
-                    <a href="produk.html" class="font-semibold">Bahan Pokok</a>
-                    <i class="fa-solid fa-chevron-right text-[10px]"></i>
-                    <span class="text-blue-600 font-semibold">Tambah Produk</span>
-
+                    <span class="text-blue-600 font-semibold">Tambah Produk / Restok</span>
                 </div>
             </div>
 
-            <!-- Form Content Grid -->
-            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 items-start">
-                <!-- Left 2-Column: Form Information -->
+            <!-- Mode Selector Switcher Pills -->
+            <div class="bg-white p-1.5 rounded-2xl border border-slate-200/80 shadow-sm flex items-center gap-1 text-xs font-semibold max-w-xl">
+                <button id="mode-new-btn" class="mode-btn flex-1 py-3 bg-blue-100 text-blue-600 rounded-xl text-center shadow-xs transition-all flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-plus-circle"></i>
+                    <span>Tambah Produk Baru</span>
+                </button>
+                <button id="mode-restock-btn" class="mode-btn flex-1 py-3 text-slate-500 hover:text-slate-800 rounded-xl text-center transition-all flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-boxes-packing"></i>
+                    <span>Tambah Stok (Restok Barang)</span>
+                </button>
+            </div>
+
+            <!-- Form Mode 1: Tambah Produk Baru -->
+            <div id="form-new-product" class="grid grid-cols-1 lg:grid-cols-3 gap-6 items-start">
+                <!-- Left 2-Column: Form Details -->
                 <div class="lg:col-span-2 bg-white p-5 md:p-7 rounded-2xl border border-slate-200/80 shadow-sm space-y-6">
-                    <div>
-                        <h2 class="text-base font-bold text-slate-900">Informasi Produk</h2>
-                        <p class="text-xs text-slate-400 mt-0.5">Tambahkan produk baru sesuai informasi yang ada.</p>
+                    <div class="flex items-center justify-between border-b border-slate-100 pb-4">
+                        <div>
+                            <h2 class="text-base font-bold text-slate-900">Informasi Produk Baru</h2>
+                            <p class="text-xs text-slate-400 mt-0.5">Isi rincian produk retail baru yang akan dijual di toko.</p>
+                        </div>
+                        <!-- Barcode Scanner Button -->
+                        <button type="button" class="px-3 py-2 bg-blue-50 text-blue-600 hover:bg-blue-100 rounded-xl text-xs font-bold border border-blue-200 flex items-center gap-2">
+                            <i class="fa-solid fa-camera"></i>
+                            <span>Scan Barcode HP</span>
+                        </button>
                     </div>
 
                     <form class="space-y-4">
-                        <!-- SKU -->
-                        <div>
-                            <label class="block text-xs font-semibold text-slate-700 mb-1.5">SKU</label>
-                            <input type="text" placeholder="Input no SKU" class="w-full px-4 py-3 text-xs bg-white border border-slate-200 rounded-xl focus:outline-none focus:border-blue-500">
+                        <!-- SKU & Kode Barcode -->
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-xs font-semibold text-slate-700 mb-1.5">Kode SKU / Barcode</label>
+                                <input type="text" placeholder="Contoh: SKU-8991005 (Atau hasil scan)" class="w-full px-4 py-3 text-xs bg-white border border-slate-200 rounded-xl focus:outline-none focus:border-blue-500">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-semibold text-slate-700 mb-1.5">Kategori Produk</label>
+                                <select class="w-full px-4 py-3 text-xs bg-white border border-slate-200 rounded-xl focus:outline-none focus:border-blue-500 text-slate-700">
+                                    <option value="">-- Pilih Kategori --</option>
+                                    <option>Bahan Pokok</option>
+                                    <option>Snack & Chiki</option>
+                                    <option>Sabun & Pembersih</option>
+                                    <option>Minuman</option>
+                                    <option>Lainnya</option>
+                                </select>
+                            </div>
                         </div>
 
                         <!-- Nama Produk -->
                         <div>
                             <label class="block text-xs font-semibold text-slate-700 mb-1.5">Nama Produk</label>
-                            <input type="text" placeholder="Input product name" class="w-full px-4 py-3 text-xs bg-white border border-slate-200 rounded-xl focus:outline-none focus:border-blue-500">
+                            <input type="text" placeholder="Contoh: Indomie Goreng Spesial 85g" class="w-full px-4 py-3 text-xs bg-white border border-slate-200 rounded-xl focus:outline-none focus:border-blue-500">
                         </div>
 
-                        <!-- Harga & Jumlah -->
+                        <!-- Harga Beli & Harga Jual -->
                         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                             <div>
-                                <label class="block text-xs font-semibold text-slate-700 mb-1.5">Harga</label>
-                                <input type="text" placeholder="Input Price" class="w-full px-4 py-3 text-xs bg-white border border-slate-200 rounded-xl focus:outline-none focus:border-blue-500">
+                                <label class="block text-xs font-semibold text-slate-700 mb-1.5">Harga Beli / Modal (Rp)</label>
+                                <input type="text" placeholder="Rp 2.800" class="w-full px-4 py-3 text-xs bg-white border border-slate-200 rounded-xl focus:outline-none focus:border-blue-500">
                             </div>
                             <div>
-                                <label class="block text-xs font-semibold text-slate-700 mb-1.5">/ Jumlah</label>
-                                <input type="text" placeholder="Color" class="w-full px-4 py-3 text-xs bg-white border border-slate-200 rounded-xl focus:outline-none focus:border-blue-500">
+                                <label class="block text-xs font-semibold text-slate-700 mb-1.5">Harga Jual Konsumen (Rp)</label>
+                                <input type="text" placeholder="Rp 3.500" class="w-full px-4 py-3 text-xs bg-white border border-slate-200 rounded-xl focus:outline-none focus:border-blue-500">
                             </div>
                         </div>
 
-                        <!-- Kategori Dropdown -->
-                        <div>
-                            <label class="block text-xs font-semibold text-slate-700 mb-1.5">Kategori</label>
-                            <select class="w-full px-4 py-3 text-xs bg-white border border-slate-200 rounded-xl focus:outline-none focus:border-blue-500 text-slate-500">
-                                <option value="">Select product category</option>
-                                <option>Bahan Pokok</option>
-                                <option>Snack & Chiki</option>
-                                <option>Jajanan Tradisional</option>
-                                <option>Sabun & Pembersih</option>
-                            </select>
-                        </div>
-
-                        <!-- Stok Produk -->
-                        <div>
-                            <label class="block text-xs font-semibold text-slate-700 mb-1.5">Stok Produk</label>
-                            <input type="number" placeholder="Input stock" class="w-full px-4 py-3 text-xs bg-white border border-slate-200 rounded-xl focus:outline-none focus:border-blue-500">
+                        <!-- Dual Storage Stock (Fitur Utama Circo) -->
+                        <div class="p-4 bg-slate-50 border border-slate-200/80 rounded-xl space-y-3">
+                            <div class="flex items-center gap-2">
+                                <i class="fa-solid fa-warehouse text-blue-600"></i>
+                                <span class="text-xs font-bold text-slate-800">Alokasi Stok Awal (Dual-Storage Management)</span>
+                            </div>
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-[11px] font-semibold text-slate-600 mb-1">Stok Toko Depan / Etalase</label>
+                                    <input type="number" placeholder="Misal: 40 pcs" class="w-full px-3 py-2.5 text-xs bg-white border border-slate-200 rounded-lg focus:outline-none focus:border-blue-500">
+                                </div>
+                                <div>
+                                    <label class="block text-[11px] font-semibold text-slate-600 mb-1">Stok Gudang Penyimpanan</label>
+                                    <input type="number" placeholder="Misal: 100 pcs" class="w-full px-3 py-2.5 text-xs bg-white border border-slate-200 rounded-lg focus:outline-none focus:border-blue-500">
+                                </div>
+                            </div>
                         </div>
                     </form>
                 </div>
 
-                <!-- Right Column: Image Upload Cards & Save Action -->
+                <!-- Right Column: Image Upload & Action -->
                 <div class="space-y-6">
                     <div class="bg-white p-5 md:p-6 rounded-2xl border border-slate-200/80 shadow-sm space-y-4">
                         <div>
-                            <h2 class="text-base font-bold text-slate-900">Gambar Produk</h2>
-                            <p class="text-[11px] text-slate-400 mt-0.5">
-                                <span class="text-blue-600 font-semibold">Note :</span> Format photos SVG, PNG, or JPG (Max size 4mb)
-                            </p>
+                            <h2 class="text-base font-bold text-slate-900">Foto Produk</h2>
+                            <p class="text-[11px] text-slate-400 mt-0.5">Format SVG, PNG, JPG (Maks. 4MB)</p>
                         </div>
 
-                        <!-- 4 Image Upload Placeholders Grid -->
                         <div class="grid grid-cols-2 gap-3">
                             <label class="border-2 border-dashed border-blue-400/60 bg-blue-50/20 hover:bg-blue-50/50 rounded-xl p-4 flex flex-col items-center justify-center gap-2 cursor-pointer transition-colors h-28 text-center">
                                 <img src="assets/icons/image.svg" alt="Upload" class="w-6 h-6 text-blue-500">
-                                <span class="text-[10px] font-semibold text-blue-600">Photo 1</span>
+                                <span class="text-[10px] font-semibold text-blue-600">Foto Utam</span>
                                 <input type="file" class="hidden">
                             </label>
                             <label class="border-2 border-dashed border-blue-400/60 bg-blue-50/20 hover:bg-blue-50/50 rounded-xl p-4 flex flex-col items-center justify-center gap-2 cursor-pointer transition-colors h-28 text-center">
                                 <img src="assets/icons/image.svg" alt="Upload" class="w-6 h-6 text-blue-500">
-                                <span class="text-[10px] font-semibold text-blue-600">Photo 2</span>
-                                <input type="file" class="hidden">
-                            </label>
-                            <label class="border-2 border-dashed border-blue-400/60 bg-blue-50/20 hover:bg-blue-50/50 rounded-xl p-4 flex flex-col items-center justify-center gap-2 cursor-pointer transition-colors h-28 text-center">
-                                <img src="assets/icons/image.svg" alt="Upload" class="w-6 h-6 text-blue-500">
-                                <span class="text-[10px] font-semibold text-blue-600">Photo 3</span>
-                                <input type="file" class="hidden">
-                            </label>
-                            <label class="border-2 border-dashed border-blue-400/60 bg-blue-50/20 hover:bg-blue-50/50 rounded-xl p-4 flex flex-col items-center justify-center gap-2 cursor-pointer transition-colors h-28 text-center">
-                                <img src="assets/icons/image.svg" alt="Upload" class="w-6 h-6 text-blue-500">
-                                <span class="text-[10px] font-semibold text-blue-600">Photo 4</span>
+                                <span class="text-[10px] font-semibold text-blue-600">Foto 2</span>
                                 <input type="file" class="hidden">
                             </label>
                         </div>
                     </div>
 
-                    <!-- Submit Button -->
-                    <div class="flex justify-end">
-                        <a href="produk.html" class="w-full sm:w-auto px-8 py-3.5 bg-blue-600 hover:bg-blue-700 text-white rounded-xl text-xs font-semibold text-center shadow-lg shadow-blue-500/20 transition-all">
-                            Save Product
-                        </a>
+                    <div class="flex justify-end gap-3">
+                        <a href="produk.html" class="flex-1 py-3 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-xl text-xs font-semibold text-center">Batal</a>
+                        <a href="produk.html" class="flex-1 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-xl text-xs font-semibold text-center shadow-lg shadow-blue-500/20">Simpan Produk</a>
                     </div>
                 </div>
+            </div>
+
+            <!-- Form Mode 2: Tambah Stok (Restok Barang Yang Sudah Ada) -->
+            <div id="form-restock-product" class="hidden max-w-3xl bg-white p-5 md:p-8 rounded-2xl border border-slate-200/80 shadow-sm space-y-6">
+                <div class="border-b border-slate-100 pb-4">
+                    <h2 class="text-base font-bold text-slate-900">Restok / Tambah Jumlah Stok Barang</h2>
+                    <p class="text-xs text-slate-400 mt-0.5">Pilih produk yang sudah terdaftar di toko untuk menambahkan jumlah stok baru dari supplier.</p>
+                </div>
+
+                <form action="produk.html" class="space-y-4">
+                    <!-- Pilih Produk -->
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-700 mb-1.5">Pilih Produk Yang Di-Restok</label>
+                        <select class="w-full px-4 py-3 text-xs bg-white border border-slate-200 rounded-xl focus:outline-none focus:border-blue-500 font-semibold text-slate-800">
+                            <option value="">-- Cari atau Pilih Produk --</option>
+                            <option selected>Minyak Goreng Sania 1 Liter (Stok Toko: 45 pcs, Gudang: 120 pcs)</option>
+                            <option>Beras Premium Sania 5 Kg (Stok Toko: 8 pcs, Gudang: 15 pcs)</option>
+                            <option>Sabun Cair Lifebuoy 450ml (Stok Toko: 0 pcs, Gudang: 0 pcs)</option>
+                            <option>Snack Taro Net 65 gram (Stok Toko: 60 pcs, Gudang: 200 pcs)</option>
+                        </select>
+                    </div>
+
+                    <!-- Pilih Lokasi Tujuan Penambahan Stok -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-700 mb-1.5">Lokasi Masuk Stok</label>
+                            <select class="w-full px-4 py-3 text-xs bg-white border border-slate-200 rounded-xl focus:outline-none focus:border-blue-500 text-slate-700">
+                                <option>Gudang Penyimpanan</option>
+                                <option>Toko Depan / Etalase</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-700 mb-1.5">Jumlah Stok Ditambahkan (Pcs/Kg)</label>
+                            <input type="number" placeholder="Contoh: 50" class="w-full px-4 py-3 text-xs bg-white border border-slate-200 rounded-xl focus:outline-none focus:border-blue-500">
+                        </div>
+                    </div>
+
+                    <!-- Harga Modal Pembelian Baru (Opsional) & Supplier -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-700 mb-1.5">Harga Beli Supplier Baru (Opsional)</label>
+                            <input type="text" placeholder="Rp 14.500 (Biarkan jika sama)" class="w-full px-4 py-3 text-xs bg-white border border-slate-200 rounded-xl focus:outline-none focus:border-blue-500">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-700 mb-1.5">Nama Supplier / Grosir</label>
+                            <input type="text" placeholder="Misal: Agen Agen Sembako Jaya" class="w-full px-4 py-3 text-xs bg-white border border-slate-200 rounded-xl focus:outline-none focus:border-blue-500">
+                        </div>
+                    </div>
+
+                    <!-- Tanggal Masuk & Catatan -->
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-700 mb-1.5">Catatan Restok</label>
+                        <input type="text" placeholder="Misal: Restok mingguan pasokan agen utama" class="w-full px-4 py-3 text-xs bg-white border border-slate-200 rounded-xl focus:outline-none focus:border-blue-500">
+                    </div>
+
+                    <div class="pt-2 flex gap-3">
+                        <a href="produk.html" class="flex-1 py-3.5 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-xl text-xs font-semibold text-center">Batal</a>
+                        <button type="submit" class="flex-1 py-3.5 bg-blue-600 hover:bg-blue-700 text-white rounded-xl text-xs font-semibold text-center shadow-lg shadow-blue-500/20">
+                            Simpan Restok Barang
+                        </button>
+                    </div>
+                </form>
             </div>
         </main>
     </div>
@@ -137,6 +213,21 @@
     <script>
         $(document).ready(function() {
             initDashboardLayout('produk');
+
+            // Switcher mode Tambah Baru vs Restok
+            $('#mode-new-btn').on('click', function() {
+                $('.mode-btn').removeClass('bg-blue-100 text-blue-600').addClass('text-slate-500');
+                $(this).addClass('bg-blue-100 text-blue-600').removeClass('text-slate-500');
+                $('#form-new-product').removeClass('hidden');
+                $('#form-restock-product').addClass('hidden');
+            });
+
+            $('#mode-restock-btn').on('click', function() {
+                $('.mode-btn').removeClass('bg-blue-100 text-blue-600').addClass('text-slate-500');
+                $(this).addClass('bg-blue-100 text-blue-600').removeClass('text-slate-500');
+                $('#form-restock-product').removeClass('hidden');
+                $('#form-new-product').addClass('hidden');
+            });
         });
     </script>
 </body>

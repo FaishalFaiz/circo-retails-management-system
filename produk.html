@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Product List - Circo</title>
+    <title>Katalog Produk & Stok - Circo</title>
     <link rel="icon" type="image/svg+xml" href="assets/logo-icon.svg">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -21,22 +21,22 @@
         <main class="flex-1 p-4 md:p-6 space-y-6">
             <!-- Header & Breadcrumb -->
             <div>
-                <h1 class="text-xl md:text-2xl font-bold text-slate-900">Produk</h1>
+                <h1 class="text-xl md:text-2xl font-bold text-slate-900">Manajemen Stok & Produk</h1>
                 <div class="flex items-center gap-2 text-xs text-slate-400 mt-1 font-medium">
-                    <a href="dashboard.html">Dashboard</a>
+                    <span>Dashboard</span>
                     <i class="fa-solid fa-chevron-right text-[10px]"></i>
-                    <a href="">Produk</a>
+                    <span>Toko</span>
                     <i class="fa-solid fa-chevron-right text-[10px]"></i>
-                    <span class="text-blue-600 font-semibold">Bahan Pokok</span>
+                    <span class="text-blue-600 font-semibold">Katalog Produk</span>
                 </div>
             </div>
 
             <!-- Main Container Card -->
             <div class="bg-white rounded-2xl border border-slate-200/80 p-4 md:p-6 shadow-sm space-y-5">
-                <!-- Toolbar Header: Search, Filter, Export, New Product -->
+                <!-- Toolbar Header: Search, Filter, Export, Tambah Produk -->
                 <div class="flex flex-col md:flex-row items-stretch md:items-center justify-between gap-3">
                     <div class="relative flex-1 max-w-md">
-                        <input type="text" placeholder="Search for id, name product" class="w-full bg-white border border-slate-200 rounded-xl pl-4 pr-10 py-2.5 text-xs focus:outline-none focus:border-blue-500">
+                        <input type="text" placeholder="Cari nama produk, SKU, atau barcode..." class="w-full bg-white border border-slate-200 rounded-xl pl-4 pr-10 py-2.5 text-xs focus:outline-none focus:border-blue-500">
                         <img src="assets/icons/search.svg" alt="Search" class="w-4 h-4 absolute right-3 top-1/2 -translate-y-1/2 text-slate-400">
                     </div>
 
@@ -46,7 +46,7 @@
                             <span>Filter</span>
                         </button>
                         <button class="flex-1 md:flex-none flex items-center justify-center gap-2 px-4 py-2.5 border border-slate-200 rounded-xl text-xs font-semibold text-slate-700 hover:bg-slate-50">
-                            <span>Export</span>
+                            <span>Export CSV</span>
                             <img src="assets/icons/download-2.svg" alt="Export" class="w-4 h-4">
                         </button>
                         <a href="produk-tambah.html" class="flex-1 md:flex-none flex items-center justify-center gap-2 px-4 py-2.5 bg-blue-600 hover:bg-blue-700 text-white rounded-xl text-xs font-semibold shadow-md shadow-blue-500/20 transition-all">
@@ -58,42 +58,48 @@
 
                 <!-- Category Tabs Pills -->
                 <div class="bg-slate-50 p-1.5 rounded-xl border border-slate-100 flex items-center gap-1 overflow-x-auto text-xs font-medium">
-                    <button class="px-5 py-2 bg-blue-100 text-blue-600 font-bold rounded-lg whitespace-nowrap shadow-xs">Bahan Pokok (50)</button>
-                    <button class="px-5 py-2 text-slate-500 hover:text-slate-800 rounded-lg whitespace-nowrap">Snack & Chiki (26)</button>
-                    <button class="px-5 py-2 text-slate-500 hover:text-slate-800 rounded-lg whitespace-nowrap">Sabun & Pembersih (121)</button>
-                    <button class="px-5 py-2 text-slate-500 hover:text-slate-800 rounded-lg whitespace-nowrap">Lainnya (21)</button>
+                    <button class="px-5 py-2 bg-blue-100 text-blue-600 font-bold rounded-lg whitespace-nowrap shadow-xs">Semua Kategori (142)</button>
+                    <button class="px-5 py-2 text-slate-500 hover:text-slate-800 rounded-lg whitespace-nowrap">Bahan Pokok (48)</button>
+                    <button class="px-5 py-2 text-slate-500 hover:text-slate-800 rounded-lg whitespace-nowrap">Snack & Chiki (35)</button>
+                    <button class="px-5 py-2 text-slate-500 hover:text-slate-800 rounded-lg whitespace-nowrap">Sabun & Pembersih (29)</button>
+                    <button class="px-5 py-2 text-slate-500 hover:text-slate-800 rounded-lg whitespace-nowrap">Minuman (30)</button>
                 </div>
 
-                <!-- Table for Desktop (Hidden on Mobile) -->
+                <!-- Table for Desktop -->
                 <div class="hidden md:block overflow-x-auto">
                     <table class="w-full text-left text-xs">
                         <thead>
                             <tr class="bg-slate-50 text-slate-600 font-semibold border-b border-slate-100">
                                 <th class="p-3 w-10 text-center"><input type="checkbox" class="rounded border-slate-300"></th>
                                 <th class="p-3">Produk</th>
-                                <th class="p-3">Harga</th>
-                                <th class="p-3">QTY</th>
-                                <th class="p-3">Tanggal</th>
-                                <th class="p-3">Status</th>
-                                <th class="p-3 text-center">Action</th>
+                                <th class="p-3">Kategori</th>
+                                <th class="p-3">Harga Beli (Modal)</th>
+                                <th class="p-3">Harga Jual</th>
+                                <th class="p-3">Stok Toko</th>
+                                <th class="p-3">Stok Gudang</th>
+                                <th class="p-3">Status Stok</th>
+                                <th class="p-3 text-center">Aksi</th>
                             </tr>
                         </thead>
                         <tbody class="divide-y divide-slate-100 text-slate-700 font-medium">
+                            <!-- Row 1 -->
                             <tr class="hover:bg-slate-50/50">
                                 <td class="p-3 text-center"><input type="checkbox" class="rounded border-slate-300"></td>
                                 <td class="p-3">
                                     <div class="flex items-center gap-3">
-                                        <img src="assets/image/minyak_3x.webp" alt="Beigi Coffe" class="w-10 h-10 object-contain rounded-lg border border-slate-100 bg-slate-50">
+                                        <img src="assets/image/minyak_3x.webp" alt="Minyak Goreng" class="w-10 h-10 object-contain rounded-lg border border-slate-100 bg-slate-50">
                                         <div>
-                                            <p class="text-[10px] text-slate-400 font-mono">021231</p>
-                                            <p class="font-bold text-slate-800">Beigi Coffe (Navy)</p>
+                                            <p class="text-[10px] text-slate-400 font-mono">SKU-8991001</p>
+                                            <p class="font-bold text-slate-800">Minyak Goreng Sania 1 Liter</p>
                                         </div>
                                     </div>
                                 </td>
-                                <td class="p-3">$20.00</td>
-                                <td class="p-3">234</td>
-                                <td class="p-3 text-slate-500">04/17/23 at 8:25 PM</td>
-                                <td class="p-3"><span class="badge-available px-3 py-1 rounded-full text-[10px] font-bold">Available</span></td>
+                                <td class="p-3"><span class="bg-slate-100 text-slate-700 px-2.5 py-1 rounded-lg text-[10px] font-semibold">Bahan Pokok</span></td>
+                                <td class="p-3 text-slate-500">Rp 14.500</td>
+                                <td class="p-3 font-bold text-slate-900">Rp 17.500</td>
+                                <td class="p-3 font-semibold text-slate-800">45 pcs</td>
+                                <td class="p-3 text-slate-500">120 pcs</td>
+                                <td class="p-3"><span class="badge-available px-3 py-1 rounded-full text-[10px] font-bold">Stok Aman</span></td>
                                 <td class="p-3">
                                     <div class="flex items-center justify-center gap-2 text-slate-400">
                                         <button class="hover:text-blue-600"><img src="assets/icons/eye-open.svg" class="w-4 h-4" alt="View"></button>
@@ -102,21 +108,76 @@
                                     </div>
                                 </td>
                             </tr>
+                            <!-- Row 2 -->
                             <tr class="hover:bg-slate-50/50">
                                 <td class="p-3 text-center"><input type="checkbox" class="rounded border-slate-300"></td>
                                 <td class="p-3">
                                     <div class="flex items-center gap-3">
-                                        <img src="assets/image/minyak_3x.webp" alt="Beigi Coffe" class="w-10 h-10 object-contain rounded-lg border border-slate-100 bg-slate-50">
+                                        <img src="assets/image/beras_3x.webp" alt="Beras Sania" class="w-10 h-10 object-contain rounded-lg border border-slate-100 bg-slate-50">
                                         <div>
-                                            <p class="text-[10px] text-slate-400 font-mono">021231</p>
-                                            <p class="font-bold text-slate-800">Beigi Coffe (Navy)</p>
+                                            <p class="text-[10px] text-slate-400 font-mono">SKU-8991002</p>
+                                            <p class="font-bold text-slate-800">Beras Premium Sania 5 Kg</p>
                                         </div>
                                     </div>
                                 </td>
-                                <td class="p-3">$20.00</td>
-                                <td class="p-3">234</td>
-                                <td class="p-3 text-slate-500">04/17/23 at 8:25 PM</td>
-                                <td class="p-3"><span class="badge-outofstock px-3 py-1 rounded-full text-[10px] font-bold">Out of Stock</span></td>
+                                <td class="p-3"><span class="bg-slate-100 text-slate-700 px-2.5 py-1 rounded-lg text-[10px] font-semibold">Bahan Pokok</span></td>
+                                <td class="p-3 text-slate-500">Rp 64.000</td>
+                                <td class="p-3 font-bold text-slate-900">Rp 72.000</td>
+                                <td class="p-3 font-semibold text-slate-800">8 pcs</td>
+                                <td class="p-3 text-slate-500">15 pcs</td>
+                                <td class="p-3"><span class="badge-unpaid px-3 py-1 rounded-full text-[10px] font-bold">Stok Menipis</span></td>
+                                <td class="p-3">
+                                    <div class="flex items-center justify-center gap-2 text-slate-400">
+                                        <button class="hover:text-blue-600"><img src="assets/icons/eye-open.svg" class="w-4 h-4" alt="View"></button>
+                                        <a href="produk-edit.html" class="hover:text-blue-600"><img src="assets/icons/edit-03.svg" class="w-4 h-4" alt="Edit"></a>
+                                        <button class="hover:text-rose-600"><img src="assets/icons/delete-1.svg" class="w-4 h-4" alt="Delete"></button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <!-- Row 3 -->
+                            <tr class="hover:bg-slate-50/50">
+                                <td class="p-3 text-center"><input type="checkbox" class="rounded border-slate-300"></td>
+                                <td class="p-3">
+                                    <div class="flex items-center gap-3">
+                                        <img src="assets/image/sabun_3x.webp" alt="Sabun Lifebuoy" class="w-10 h-10 object-contain rounded-lg border border-slate-100 bg-slate-50">
+                                        <div>
+                                            <p class="text-[10px] text-slate-400 font-mono">SKU-8991003</p>
+                                            <p class="font-bold text-slate-800">Sabun Cair Lifebuoy 450ml</p>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="p-3"><span class="bg-slate-100 text-slate-700 px-2.5 py-1 rounded-lg text-[10px] font-semibold">Sabun & Pembersih</span></td>
+                                <td class="p-3 text-slate-500">Rp 18.000</td>
+                                <td class="p-3 font-bold text-slate-900">Rp 22.500</td>
+                                <td class="p-3 font-semibold text-slate-800">0 pcs</td>
+                                <td class="p-3 text-slate-500">0 pcs</td>
+                                <td class="p-3"><span class="badge-outofstock px-3 py-1 rounded-full text-[10px] font-bold">Stok Habis</span></td>
+                                <td class="p-3">
+                                    <div class="flex items-center justify-center gap-2 text-slate-400">
+                                        <button class="hover:text-blue-600"><img src="assets/icons/eye-open.svg" class="w-4 h-4" alt="View"></button>
+                                        <a href="produk-edit.html" class="hover:text-blue-600"><img src="assets/icons/edit-03.svg" class="w-4 h-4" alt="Edit"></a>
+                                        <button class="hover:text-rose-600"><img src="assets/icons/delete-1.svg" class="w-4 h-4" alt="Delete"></button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <!-- Row 4 -->
+                            <tr class="hover:bg-slate-50/50">
+                                <td class="p-3 text-center"><input type="checkbox" class="rounded border-slate-300"></td>
+                                <td class="p-3">
+                                    <div class="flex items-center gap-3">
+                                        <img src="assets/image/taro_3x.webp" alt="Snack Taro" class="w-10 h-10 object-contain rounded-lg border border-slate-100 bg-slate-50">
+                                        <div>
+                                            <p class="text-[10px] text-slate-400 font-mono">SKU-8991004</p>
+                                            <p class="font-bold text-slate-800">Snack Taro Net 65 gram</p>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="p-3"><span class="bg-slate-100 text-slate-700 px-2.5 py-1 rounded-lg text-[10px] font-semibold">Snack & Chiki</span></td>
+                                <td class="p-3 text-slate-500">Rp 4.000</td>
+                                <td class="p-3 font-bold text-slate-900">Rp 5.500</td>
+                                <td class="p-3 font-semibold text-slate-800">60 pcs</td>
+                                <td class="p-3 text-slate-500">200 pcs</td>
+                                <td class="p-3"><span class="badge-available px-3 py-1 rounded-full text-[10px] font-bold">Stok Aman</span></td>
                                 <td class="p-3">
                                     <div class="flex items-center justify-center gap-2 text-slate-400">
                                         <button class="hover:text-blue-600"><img src="assets/icons/eye-open.svg" class="w-4 h-4" alt="View"></button>
@@ -135,10 +196,10 @@
                         <div class="flex items-center justify-between">
                             <div class="flex items-center gap-3">
                                 <input type="checkbox" class="rounded border-slate-300">
-                                <img src="assets/image/taro_3x.webp" class="w-10 h-10 object-contain rounded-lg border border-slate-100">
+                                <img src="assets/image/minyak_3x.webp" class="w-10 h-10 object-contain rounded-lg border border-slate-100">
                                 <div>
-                                    <p class="text-[10px] text-slate-400 font-mono">021231</p>
-                                    <p class="font-bold text-xs text-slate-800">Story Honzo (Black)</p>
+                                    <p class="text-[10px] text-slate-400 font-mono">SKU-8991001</p>
+                                    <p class="font-bold text-xs text-slate-800">Minyak Goreng Sania 1L</p>
                                 </div>
                             </div>
                             <button class="mobile-accordion-btn p-1 bg-slate-100 rounded-lg text-slate-500">
@@ -149,27 +210,27 @@
                         <!-- Expanded Details -->
                         <div class="mobile-accordion-content border-t border-slate-100 pt-3 space-y-2 text-xs font-medium">
                             <div class="flex justify-between text-slate-500">
-                                <span>Price</span>
-                                <span class="font-bold text-slate-800">$32,032</span>
+                                <span>Kategori</span>
+                                <span class="font-bold text-slate-800">Bahan Pokok</span>
                             </div>
                             <div class="flex justify-between text-slate-500">
-                                <span>Size</span>
-                                <span class="font-bold text-slate-800">40</span>
+                                <span>Harga Beli (Modal)</span>
+                                <span class="text-slate-600">Rp 14.500</span>
                             </div>
                             <div class="flex justify-between text-slate-500">
-                                <span>QTY</span>
-                                <span class="font-bold text-slate-800">3000</span>
+                                <span>Harga Jual</span>
+                                <span class="font-bold text-slate-900">Rp 17.500</span>
                             </div>
                             <div class="flex justify-between text-slate-500">
-                                <span>Date</span>
-                                <span class="text-slate-600">04/17/23 at 8:25 PM</span>
+                                <span>Stok Toko / Gudang</span>
+                                <span class="font-bold text-slate-800">45 pcs / 120 pcs</span>
                             </div>
                             <div class="flex justify-between items-center text-slate-500">
-                                <span>Status</span>
-                                <span class="badge-available px-3 py-1 rounded-full text-[10px] font-bold">Available</span>
+                                <span>Status Stok</span>
+                                <span class="badge-available px-3 py-1 rounded-full text-[10px] font-bold">Stok Aman</span>
                             </div>
                             <div class="flex justify-between items-center text-slate-500 pt-1">
-                                <span>Action</span>
+                                <span>Aksi</span>
                                 <div class="flex gap-3 text-slate-400">
                                     <img src="assets/icons/eye-open.svg" class="w-4 h-4">
                                     <a href="produk-edit.html"><img src="assets/icons/edit-03.svg" class="w-4 h-4"></a>
@@ -183,11 +244,11 @@
                 <!-- Pagination Footer -->
                 <div class="flex flex-col sm:flex-row items-center justify-between gap-3 pt-3 border-t border-slate-100 text-xs text-slate-500 font-medium">
                     <div>
-                        <span class="font-bold text-blue-600">1</span> - 10 of 13 Pages
+                        Menampilkan <span class="font-bold text-blue-600">1 - 4</span> dari 142 Produk
                     </div>
 
                     <div class="flex items-center gap-3">
-                        <span>The page on</span>
+                        <span>Halaman</span>
                         <select class="bg-white border border-slate-200 rounded-lg px-2 py-1 focus:outline-none">
                             <option>1</option>
                             <option>2</option>

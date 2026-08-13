@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Edit Product - Circo</title>
+    <title>Edit Produk - Circo</title>
     <link rel="icon" type="image/svg+xml" href="assets/logo-icon.svg">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -21,114 +21,106 @@
         <main class="flex-1 p-4 md:p-6 space-y-6">
             <!-- Header & Breadcrumb -->
             <div>
-                <h1 class="text-xl md:text-2xl font-bold text-slate-900">Product</h1>
+                <h1 class="text-xl md:text-2xl font-bold text-slate-900">Edit Informasi Produk</h1>
                 <div class="flex items-center gap-2 text-xs text-slate-400 mt-1 font-medium">
                     <span>Dashboard</span>
                     <i class="fa-solid fa-chevron-right text-[10px]"></i>
-                    <span>Product</span>
+                    <span>Katalog Produk</span>
                     <i class="fa-solid fa-chevron-right text-[10px]"></i>
-                    <span>Sneakers</span>
-                    <i class="fa-solid fa-chevron-right text-[10px]"></i>
-                    <span class="text-blue-600 font-semibold">Edit Product</span>
+                    <span class="text-blue-600 font-semibold">Edit Produk</span>
                 </div>
             </div>
 
             <!-- Form Content Grid -->
             <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 items-start">
-                <!-- Left 2-Column: Form Information -->
+                <!-- Left 2-Column: Form Details -->
                 <div class="lg:col-span-2 bg-white p-5 md:p-7 rounded-2xl border border-slate-200/80 shadow-sm space-y-6">
-                    <div>
-                        <h2 class="text-base font-bold text-slate-900">Product Information</h2>
-                        <p class="text-xs text-slate-400 mt-0.5">Lorem ipsum dolor sit amet consectetur. Non ac nulla aliquam aenean in velit mattis.</p>
+                    <div class="border-b border-slate-100 pb-4">
+                        <h2 class="text-base font-bold text-slate-900">Informasi Produk</h2>
+                        <p class="text-xs text-slate-400 mt-0.5">Ubah data produk, harga modal, harga jual, dan alokasi stok toko/gudang.</p>
                     </div>
 
                     <form class="space-y-4">
-                        <!-- SKU -->
-                        <div>
-                            <label class="block text-xs font-semibold text-slate-700 mb-1.5">SKU</label>
-                            <input type="text" value="yogavwijaya@gmail" class="w-full px-4 py-3 text-xs bg-white border border-blue-500 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500/20 text-slate-800 font-medium">
-                        </div>
-
-                        <!-- Product Name -->
-                        <div>
-                            <label class="block text-xs font-semibold text-slate-700 mb-1.5">Product Name</label>
-                            <input type="text" value="Story Kitadake" class="w-full px-4 py-3 text-xs bg-white border border-slate-200 rounded-xl focus:outline-none focus:border-blue-500 text-slate-800 font-medium">
-                        </div>
-
-                        <!-- Size & Color -->
+                        <!-- SKU & Kode Barcode -->
                         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                             <div>
-                                <label class="block text-xs font-semibold text-slate-700 mb-1.5">Size</label>
-                                <input type="text" value="44" class="w-full px-4 py-3 text-xs bg-white border border-slate-200 rounded-xl focus:outline-none focus:border-blue-500 text-slate-800 font-medium">
+                                <label class="block text-xs font-semibold text-slate-700 mb-1.5">Kode SKU / Barcode</label>
+                                <input type="text" value="SKU-8991001" class="w-full px-4 py-3 text-xs bg-white border border-blue-500 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500/20 text-slate-800 font-medium">
                             </div>
                             <div>
-                                <label class="block text-xs font-semibold text-slate-700 mb-1.5">Color</label>
-                                <input type="text" value="Red WHite" class="w-full px-4 py-3 text-xs bg-white border border-slate-200 rounded-xl focus:outline-none focus:border-blue-500 text-slate-800 font-medium">
-                            </div>
-                        </div>
-
-                        <!-- Category & Price -->
-                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                            <div>
-                                <label class="block text-xs font-semibold text-slate-700 mb-1.5">Product Category</label>
+                                <label class="block text-xs font-semibold text-slate-700 mb-1.5">Kategori Produk</label>
                                 <select class="w-full px-4 py-3 text-xs bg-white border border-slate-200 rounded-xl focus:outline-none focus:border-blue-500 text-slate-800 font-medium">
-                                    <option>Sneakers</option>
-                                    <option>Jacket</option>
-                                    <option>T-Shirt</option>
+                                    <option selected>Bahan Pokok</option>
+                                    <option>Snack & Chiki</option>
+                                    <option>Sabun & Pembersih</option>
+                                    <option>Minuman</option>
                                 </select>
                             </div>
+                        </div>
+
+                        <!-- Nama Produk -->
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-700 mb-1.5">Nama Produk</label>
+                            <input type="text" value="Minyak Goreng Sania 1 Liter" class="w-full px-4 py-3 text-xs bg-white border border-slate-200 rounded-xl focus:outline-none focus:border-blue-500 text-slate-800 font-medium">
+                        </div>
+
+                        <!-- Harga Beli & Harga Jual -->
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                             <div>
-                                <label class="block text-xs font-semibold text-slate-700 mb-1.5">Price</label>
-                                <input type="text" value="$22.00" class="w-full px-4 py-3 text-xs bg-white border border-slate-200 rounded-xl focus:outline-none focus:border-blue-500 text-slate-800 font-medium">
+                                <label class="block text-xs font-semibold text-slate-700 mb-1.5">Harga Beli / Modal (Rp)</label>
+                                <input type="text" value="Rp 14.500" class="w-full px-4 py-3 text-xs bg-white border border-slate-200 rounded-xl focus:outline-none focus:border-blue-500 text-slate-800 font-medium">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-semibold text-slate-700 mb-1.5">Harga Jual Konsumen (Rp)</label>
+                                <input type="text" value="Rp 17.500" class="w-full px-4 py-3 text-xs bg-white border border-slate-200 rounded-xl focus:outline-none focus:border-blue-500 text-slate-800 font-medium">
                             </div>
                         </div>
 
-                        <!-- Quantity -->
-                        <div>
-                            <label class="block text-xs font-semibold text-slate-700 mb-1.5">Quantity</label>
-                            <input type="text" value="1112" class="w-full px-4 py-3 text-xs bg-white border border-slate-200 rounded-xl focus:outline-none focus:border-blue-500 text-slate-800 font-medium">
+                        <!-- Dual Storage Stock -->
+                        <div class="p-4 bg-slate-50 border border-slate-200/80 rounded-xl space-y-3">
+                            <div class="flex items-center gap-2">
+                                <i class="fa-solid fa-warehouse text-blue-600"></i>
+                                <span class="text-xs font-bold text-slate-800">Atur Dual-Storage Stock</span>
+                            </div>
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-[11px] font-semibold text-slate-600 mb-1">Stok Toko Depan / Etalase</label>
+                                    <input type="number" value="45" class="w-full px-3 py-2.5 text-xs bg-white border border-slate-200 rounded-lg focus:outline-none focus:border-blue-500 font-semibold">
+                                </div>
+                                <div>
+                                    <label class="block text-[11px] font-semibold text-slate-600 mb-1">Stok Gudang Penyimpanan</label>
+                                    <input type="number" value="120" class="w-full px-3 py-2.5 text-xs bg-white border border-slate-200 rounded-lg focus:outline-none focus:border-blue-500 font-semibold">
+                                </div>
+                            </div>
                         </div>
 
-                        <!-- Status Product -->
+                        <!-- Status Stok Dropdown -->
                         <div>
-                            <label class="block text-xs font-semibold text-slate-700 mb-1.5">Status Product</label>
-                            <select class="w-full px-4 py-3 text-xs bg-white border border-slate-200 rounded-xl focus:outline-none focus:border-blue-500 text-slate-400">
-                                <option value="">Select status product</option>
-                                <option selected>Available</option>
-                                <option>Out of Stock</option>
+                            <label class="block text-xs font-semibold text-slate-700 mb-1.5">Status Indikator Stok</label>
+                            <select class="w-full px-4 py-3 text-xs bg-white border border-slate-200 rounded-xl focus:outline-none focus:border-blue-500 font-semibold text-slate-800">
+                                <option selected>Stok Aman (Hijau)</option>
+                                <option>Stok Menipis (Kuning)</option>
+                                <option>Stok Habis (Merah)</option>
                             </select>
                         </div>
                     </form>
                 </div>
 
-                <!-- Right Column: Image Preview & Save/Discard Actions -->
+                <!-- Right Column: Image Preview & Save Actions -->
                 <div class="space-y-6">
                     <div class="bg-white p-5 md:p-6 rounded-2xl border border-slate-200/80 shadow-sm space-y-4">
                         <div>
-                            <h2 class="text-base font-bold text-slate-900">Image Product</h2>
-                            <p class="text-[11px] text-slate-400 mt-0.5">
-                                <span class="text-blue-600 font-semibold">Note :</span> Format photos SVG, PNG, or JPG (Max size 4mb)
-                            </p>
+                            <h2 class="text-base font-bold text-slate-900">Foto Produk</h2>
+                            <p class="text-[11px] text-slate-400 mt-0.5">Format SVG, PNG, JPG (Maks. 4MB)</p>
                         </div>
 
-                        <!-- Image Slots: Photo 1 filled, others empty -->
                         <div class="grid grid-cols-2 gap-3">
                             <div class="border border-slate-200 bg-slate-50 rounded-xl p-2 flex items-center justify-center h-28">
-                                <img src="assets/image/taro_3x.webp" alt="Product" class="max-h-full object-contain">
+                                <img src="assets/image/minyak_3x.webp" alt="Produk" class="max-h-full object-contain">
                             </div>
                             <label class="border-2 border-dashed border-blue-400/60 bg-blue-50/20 hover:bg-blue-50/50 rounded-xl p-4 flex flex-col items-center justify-center gap-2 cursor-pointer transition-colors h-28 text-center">
                                 <img src="assets/icons/image.svg" alt="Upload" class="w-6 h-6 text-blue-500">
-                                <span class="text-[10px] font-semibold text-blue-600">Photo 2</span>
-                                <input type="file" class="hidden">
-                            </label>
-                            <label class="border-2 border-dashed border-blue-400/60 bg-blue-50/20 hover:bg-blue-50/50 rounded-xl p-4 flex flex-col items-center justify-center gap-2 cursor-pointer transition-colors h-28 text-center">
-                                <img src="assets/icons/image.svg" alt="Upload" class="w-6 h-6 text-blue-500">
-                                <span class="text-[10px] font-semibold text-blue-600">Photo 3</span>
-                                <input type="file" class="hidden">
-                            </label>
-                            <label class="border-2 border-dashed border-blue-400/60 bg-blue-50/20 hover:bg-blue-50/50 rounded-xl p-4 flex flex-col items-center justify-center gap-2 cursor-pointer transition-colors h-28 text-center">
-                                <img src="assets/icons/image.svg" alt="Upload" class="w-6 h-6 text-blue-500">
-                                <span class="text-[10px] font-semibold text-blue-600">Photo 4</span>
+                                <span class="text-[10px] font-semibold text-blue-600">Ganti Foto</span>
                                 <input type="file" class="hidden">
                             </label>
                         </div>
@@ -137,10 +129,10 @@
                     <!-- Actions Buttons -->
                     <div class="flex items-center gap-3">
                         <a href="produk.html" class="flex-1 px-4 py-3.5 border border-blue-500 text-blue-600 rounded-xl text-xs font-semibold text-center hover:bg-blue-50 transition-all">
-                            Discard Changes
+                            Batalkan
                         </a>
                         <a href="produk.html" class="flex-1 px-4 py-3.5 bg-blue-600 hover:bg-blue-700 text-white rounded-xl text-xs font-semibold text-center shadow-lg shadow-blue-500/20 transition-all">
-                            Save Changes
+                            Simpan Perubahan
                         </a>
                     </div>
                 </div>
