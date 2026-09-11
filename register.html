@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login - Circo</title>
+    <title>Sign Up - Circo</title>
     <link rel="icon" type="image/svg+xml" href="assets/logo-icon.svg">
 
     <!-- Google Fonts: Plus Jakarta Sans -->
@@ -42,9 +42,9 @@
 </head>
 <body class="bg-white min-h-screen selection:bg-brand-green selection:text-white">
     <div class="grid grid-cols-1 lg:grid-cols-2 min-h-screen">
-        <!-- Left Side: Login Form -->
+        <!-- Left Side: Registration Form -->
         <div class="flex flex-col justify-center px-6 sm:px-12 lg:px-20 py-12">
-            <div class="w-full max-w-md mx-auto space-y-7">
+            <div class="w-full max-w-md mx-auto space-y-6">
                 <!-- Logo -->
                 <div>
                     <a href="index.html" class="inline-flex items-center gap-3 group">
@@ -54,16 +54,16 @@
 
                 <!-- Header Text -->
                 <div>
-                    <h1 class="text-3xl font-extrabold text-brand-black tracking-tight">Login</h1>
+                    <h1 class="text-3xl font-extrabold text-brand-black tracking-tight">Sign Up</h1>
                     <p class="text-xs sm:text-sm text-gray-500 mt-1.5 leading-relaxed">
-                        Masuk ke akun toko Anda untuk mulai mengelola transaksi dan inventaris.
+                        Daftar akun toko baru Anda sekarang dan rasakan kemudahan mengelola ritel modern.
                     </p>
                 </div>
 
-                <!-- Social Login -->
+                <!-- Social Sign Up -->
                 <button type="button" class="w-full flex items-center justify-center gap-3 px-4 py-3 border border-brand-green/80 rounded-2xl hover:bg-emerald-50/50 transition-colors text-xs font-semibold text-brand-black">
                     <img src="assets/icons/Icon-google.svg" alt="Google" class="w-4 h-4">
-                    <span>Login with Google</span>
+                    <span>Sign Up with Google</span>
                 </button>
 
                 <!-- Divider -->
@@ -74,12 +74,24 @@
 
                 <!-- Form -->
                 <form action="dashboard.html" method="GET" class="space-y-4">
+                    <!-- Nama Pemilik & Nama Toko Grid -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+                        <div>
+                            <label class="block text-xs font-semibold text-brand-black mb-1.5">Nama Lengkap</label>
+                            <input type="text" placeholder="Budi Setiawan" required class="w-full px-4 py-2.5 text-xs text-brand-black bg-white border border-gray-200 rounded-xl focus:outline-none focus:border-brand-green focus:ring-2 focus:ring-brand-green/30">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold text-brand-black mb-1.5">Nama Toko</label>
+                            <input type="text" placeholder="Toko Barokah" required class="w-full px-4 py-2.5 text-xs text-brand-black bg-white border border-gray-200 rounded-xl focus:outline-none focus:border-brand-green focus:ring-2 focus:ring-brand-green/30">
+                        </div>
+                    </div>
+
                     <!-- Email Input -->
                     <div>
                         <label class="block text-xs font-semibold text-brand-black mb-1.5">Email</label>
                         <div class="relative">
-                            <input type="email" value="yogavwijaya@gmail.com" placeholder="Masukkan alamat email" required class="w-full px-4 py-3 text-xs text-brand-black bg-white border border-brand-green rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-green/30">
-                            <img src="assets/icons/check-circle-1.svg" alt="Valid" class="w-4 h-4 absolute right-4 top-1/2 -translate-y-1/2">
+                            <input type="email" placeholder="nama@toko.com" required class="w-full px-4 py-2.5 text-xs text-brand-black bg-white border border-gray-200 rounded-xl focus:outline-none focus:border-brand-green focus:ring-2 focus:ring-brand-green/30">
+                            <img src="assets/icons/check-circle-1.svg" alt="Valid" class="w-4 h-4 absolute right-4 top-1/2 -translate-y-1/2 opacity-60">
                         </div>
                     </div>
 
@@ -87,31 +99,30 @@
                     <div>
                         <label class="block text-xs font-semibold text-brand-black mb-1.5">Password</label>
                         <div class="relative">
-                            <input id="password-input" type="password" placeholder="Masukkan password" required class="w-full px-4 py-3 text-xs text-brand-black bg-white border border-gray-200 rounded-xl focus:outline-none focus:border-brand-green focus:ring-2 focus:ring-brand-green/30">
+                            <input id="password-input" type="password" placeholder="Buat password kuat" required class="w-full px-4 py-2.5 text-xs text-brand-black bg-white border border-gray-200 rounded-xl focus:outline-none focus:border-brand-green focus:ring-2 focus:ring-brand-green/30">
                             <button type="button" id="toggle-password" class="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600 focus:outline-none">
                                 <img src="assets/icons/eye-hidden.svg" alt="Toggle password" class="w-4 h-4">
                             </button>
                         </div>
                     </div>
 
-                    <!-- Options (Remember me & Forgot Password) -->
-                    <div class="flex items-center justify-between text-xs pt-1">
-                        <label class="flex items-center gap-2 cursor-pointer text-gray-600 font-medium">
-                            <input type="checkbox" class="w-4 h-4 rounded border-gray-300 text-brand-green focus:ring-brand-green accent-[#54BD95]">
-                            <span>Remember me ?</span>
-                        </label>
-                        <a href="#" class="text-brand-green hover:underline font-semibold">Forgot Password</a>
+                    <!-- Terms Checkbox -->
+                    <div class="flex items-start gap-2.5 text-xs pt-1">
+                        <input type="checkbox" required class="w-4 h-4 mt-0.5 rounded border-gray-300 text-brand-green focus:ring-brand-green accent-[#54BD95]">
+                        <span class="text-gray-600">
+                            Saya menyetujui <a href="#" class="text-brand-green font-semibold hover:underline">Syarat & Ketentuan</a> serta <a href="#" class="text-brand-green font-semibold hover:underline">Kebijakan Privasi</a> Circo.
+                        </span>
                     </div>
 
                     <!-- Submit Button -->
-                    <button type="submit" class="w-full bg-brand-green hover:bg-brand-green-hover text-white font-semibold py-3.5 rounded-xl text-xs shadow-md shadow-brand-green/20 transition-all">
-                        Login
+                    <button type="submit" class="w-full bg-brand-green hover:bg-brand-green-hover text-white font-semibold py-3.5 rounded-xl text-xs shadow-md shadow-brand-green/20 transition-all mt-2">
+                        Daftar Sekarang
                     </button>
                 </form>
 
                 <!-- Footer Text -->
-                <p class="text-center text-xs text-gray-500 pt-2">
-                    Do not have account ? <a href="register.html" class="text-brand-green font-semibold hover:underline">Sign Up</a>
+                <p class="text-center text-xs text-gray-500 pt-1">
+                    Sudah punya akun? <a href="login.html" class="text-brand-green font-semibold hover:underline">Login</a>
                 </p>
             </div>
         </div>
@@ -135,16 +146,16 @@
                 </div>
 
                 <h2 class="text-2xl font-bold mb-3 leading-snug">
-                    Easy-to-Use Dashboard for Managing Your Business.
+                    Mulai Digitalisasi Toko Retail Anda Sekarang
                 </h2>
                 <p class="text-xs text-emerald-100/80 leading-relaxed max-w-md">
-                    Streamline Your Business Management with Our User-Friendly Dashboard. Simplify complex tasks, track key metrics, and make informed decisions effortlessly.
+                    Bergabung bersama ribuan pemilik toko kelontong & UMKM lainnya yang telah meningkatkan keuntungan dan efisiensi operasional dengan Circo.
                 </p>
 
                 <!-- Slider Indicator Pills -->
                 <div class="flex items-center gap-2 mt-6">
-                    <span class="w-8 h-2 bg-brand-green rounded-full"></span>
                     <span class="w-2 h-2 bg-white/30 rounded-full"></span>
+                    <span class="w-8 h-2 bg-brand-green rounded-full"></span>
                     <span class="w-2 h-2 bg-white/30 rounded-full"></span>
                 </div>
             </div>
