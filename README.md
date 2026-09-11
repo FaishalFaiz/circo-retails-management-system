@@ -1,1 +1,1 @@
-# Circo - Smart Retail Management System
+# Circo - Smart Retail Management System (UI-Only)
