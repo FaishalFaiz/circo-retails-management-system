@@ -2,18 +2,18 @@
 <g clip-path="url(#clip0_122144_5635)">
 <rect width="449.681" height="531.217" rx="24.7078" fill="#F9F8FE"/>
 <rect x="46.9434" y="143.305" width="402.737" height="387.912" fill="#F5FAFA"/>
-<rect x="132.188" y="67.9453" width="290.316" height="18.5308" fill="#DBE5FA"/>
-<rect x="132.188" y="98.8301" width="264.373" height="18.5308" fill="#DBE5FA"/>
-<rect x="132.188" y="129.715" width="234.724" height="18.5308" fill="#DBE5FA"/>
-<rect x="132.188" y="160.6" width="207.545" height="18.5308" fill="#DBE5FA"/>
-<rect x="132.188" y="216.192" width="290.316" height="18.5308" fill="#DBE5FA"/>
-<rect x="132.188" y="247.077" width="264.373" height="18.5308" fill="#DBE5FA"/>
-<rect x="132.188" y="277.962" width="234.724" height="18.5308" fill="#DBE5FA"/>
-<rect x="132.188" y="308.847" width="207.545" height="18.5308" fill="#DBE5FA"/>
+<rect x="132.188" y="67.9453" width="290.316" height="18.5308" fill="#E7F6EF"/>
+<rect x="132.188" y="98.8301" width="264.373" height="18.5308" fill="#E7F6EF"/>
+<rect x="132.188" y="129.715" width="234.724" height="18.5308" fill="#E7F6EF"/>
+<rect x="132.188" y="160.6" width="207.545" height="18.5308" fill="#E7F6EF"/>
+<rect x="132.188" y="216.192" width="290.316" height="18.5308" fill="#E7F6EF"/>
+<rect x="132.188" y="247.077" width="264.373" height="18.5308" fill="#E7F6EF"/>
+<rect x="132.188" y="277.962" width="234.724" height="18.5308" fill="#E7F6EF"/>
+<rect x="132.188" y="308.847" width="207.545" height="18.5308" fill="#E7F6EF"/>
 <rect x="27.1807" y="67.9453" width="77.8295" height="111.185" rx="2.47078" fill="#54BD95"/>
-<rect x="27.1807" y="222.369" width="77.8295" height="111.185" rx="2.47078" fill="#0F8CE9"/>
-<circle cx="82.7731" cy="426.209" r="55.5925" fill="#DBE5FA"/>
-<circle cx="224.842" cy="426.209" r="55.5925" fill="#0F8CE9"/>
+<rect x="27.1807" y="222.369" width="77.8295" height="111.185" rx="2.47078" fill="#54BD95"/>
+<circle cx="82.7731" cy="426.209" r="55.5925" fill="#E7F6EF"/>
+<circle cx="224.842" cy="426.209" r="55.5925" fill="#54BD95"/>
 <circle cx="366.912" cy="426.209" r="55.5925" fill="#54BD95"/>
 </g>
 <defs>

@@ -14,7 +14,7 @@ body {
     background-color: #FFFFFF;
     display: flex;
     flex-direction: column;
-    box-shadow: 2px 0 10px rgba(0,0,0,0.03);
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.03);
 }
 
 #main-content {
@@ -34,7 +34,7 @@ body {
         width: 260px !important;
         transform: translateX(-100%) !important;
         transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
-        box-shadow: 4px 0 20px rgba(0,0,0,0.15);
+        box-shadow: 4px 0 20px rgba(0, 0, 0, 0.15);
     }
 
     #sidebar.mobile-open {
@@ -104,12 +104,14 @@ body {
 }
 
 /* Status Badges */
-.badge-available, .badge-success {
+.badge-available,
+.badge-success {
     background-color: #DCFCE7;
     color: #16A34A;
 }
 
-.badge-outofstock, .badge-danger {
+.badge-outofstock,
+.badge-danger {
     background-color: #FEE2E2;
     color: #DC2626;
 }
@@ -140,4 +142,92 @@ body {
     border-radius: 1rem;
     border: 1px solid #E2E8F0;
     box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.02);
+}
+
+/* Circo brand overrides for dashboard Tailwind utilities. */
+:root {
+    --brand-green: #54BD95;
+    --brand-green-hover: #43a27f;
+    --brand-green-soft: #E7F6EF;
+}
+
+.bg-blue-600 {
+    background-color: var(--brand-green) !important;
+}
+
+.bg-blue-100 {
+    background-color: var(--brand-green-soft) !important;
+}
+
+.bg-blue-50 {
+    background-color: #F1FBF6 !important;
+}
+
+.bg-blue-50\/20 {
+    background-color: rgba(84, 189, 149, 0.2) !important;
+}
+
+.text-blue-600 {
+    color: var(--brand-green) !important;
+}
+
+.text-blue-700 {
+    color: #398467 !important;
+}
+
+.text-blue-500 {
+    color: var(--brand-green) !important;
+}
+
+.text-blue-400 {
+    color: #78C9A9 !important;
+}
+
+.text-blue-100 {
+    color: #DDF3E8 !important;
+}
+
+.border-blue-500,
+.border-blue-200 {
+    border-color: var(--brand-green) !important;
+}
+
+.border-blue-400\/60 {
+    border-color: rgba(84, 189, 149, 0.6) !important;
+}
+
+.focus\:border-blue-500:focus {
+    border-color: var(--brand-green) !important;
+}
+
+.focus\:ring-blue-500\/20:focus {
+    --tw-ring-color: rgba(84, 189, 149, 0.2) !important;
+}
+
+.hover\:bg-blue-700:hover {
+    background-color: var(--brand-green-hover) !important;
+}
+
+.hover\:bg-blue-100:hover {
+    background-color: var(--brand-green-soft) !important;
+}
+
+.hover\:bg-blue-50:hover {
+    background-color: #F1FBF6 !important;
+}
+
+.hover\:bg-blue-50\/50:hover {
+    background-color: rgba(84, 189, 149, 0.5) !important;
+}
+
+.hover\:border-blue-500:hover {
+    border-color: var(--brand-green) !important;
+}
+
+.hover\:text-blue-600:hover {
+    color: var(--brand-green-hover) !important;
+}
+
+.shadow-blue-500\/20 {
+    --tw-shadow-color: rgba(84, 189, 149, 0.2) !important;
 }
