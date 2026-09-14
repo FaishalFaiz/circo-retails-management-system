@@ -231,3 +231,20 @@ body {
 .shadow-blue-500\/20 {
     --tw-shadow-color: rgba(84, 189, 149, 0.2) !important;
 }
+
+/* Make dashboard summary cards feel interactive and keyboard-accessible. */
+.dashboard-card-link {
+    color: inherit;
+    text-decoration: none;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.dashboard-card-link:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 24px rgba(15, 23, 42, 0.1);
+}
+
+.dashboard-card-link:focus-visible {
+    outline: 3px solid rgba(84, 189, 149, 0.35);
+    outline-offset: 3px;
+}
