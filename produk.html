@@ -188,8 +188,9 @@
                     </table>
                 </div>
 
-                <!-- Accordion Card View for Mobile -->
+                <!-- Mobile Accordion Cards (first three items) -->
                 <div class="block md:hidden space-y-3">
+                    <!-- Card 1 -->
                     <div class="bg-white border border-slate-200 rounded-xl p-3.5 space-y-3">
                         <div class="flex items-center justify-between">
                             <div class="flex items-center gap-3">
@@ -200,41 +201,59 @@
                                     <p class="font-bold text-xs text-slate-800">Minyak Goreng Sania 1L</p>
                                 </div>
                             </div>
-                            <button class="mobile-accordion-btn p-1 bg-slate-100 rounded-lg text-slate-500">
-                                <i class="fa-solid fa-chevron-up transition-transform duration-200"></i>
-                            </button>
+                            <button class="mobile-accordion-btn p-1 bg-slate-100 rounded-lg text-slate-500"><i class="fa-solid fa-chevron-up transition-transform duration-200"></i></button>
                         </div>
-
-                        <!-- Expanded Details -->
-                        <div class="mobile-accordion-content border-t border-slate-100 pt-3 space-y-2 text-xs font-medium">
-                            <div class="flex justify-between text-slate-500">
-                                <span>Kategori</span>
-                                <span class="font-bold text-slate-800">Bahan Pokok</span>
-                            </div>
-                            <div class="flex justify-between text-slate-500">
-                                <span>Harga Beli (Modal)</span>
-                                <span class="text-slate-600">Rp 14.500</span>
-                            </div>
-                            <div class="flex justify-between text-slate-500">
-                                <span>Harga Jual</span>
-                                <span class="font-bold text-slate-900">Rp 17.500</span>
-                            </div>
-                            <div class="flex justify-between text-slate-500">
-                                <span>Stok Toko / Gudang</span>
-                                <span class="font-bold text-slate-800">45 pcs / 120 pcs</span>
-                            </div>
-                            <div class="flex justify-between items-center text-slate-500">
-                                <span>Status Stok</span>
-                                <span class="badge-available px-3 py-1 rounded-full text-[10px] font-bold">Stok Aman</span>
-                            </div>
-                            <div class="flex justify-between items-center text-slate-500 pt-1">
-                                <span>Aksi</span>
-                                <div class="flex gap-3 text-slate-400">
-                                    <img src="assets/icons/eye-open.svg" class="w-4 h-4">
-                                    <a href="produk-edit.html"><img src="assets/icons/edit-03.svg" class="w-4 h-4"></a>
-                                    <img src="assets/icons/delete-1.svg" class="w-4 h-4">
+                        <div class="mobile-accordion-content border-t border-slate-100 pt-3 space-y-2 text-xs font-medium hidden">
+                            <div class="flex justify-between text-slate-500"><span>Kategori</span><span class="font-bold text-slate-800">Bahan Pokok</span></div>
+                            <div class="flex justify-between text-slate-500"><span>Harga Beli (Modal)</span><span class="text-slate-600">Rp 14.500</span></div>
+                            <div class="flex justify-between text-slate-500"><span>Harga Jual</span><span class="font-bold text-slate-900">Rp 17.500</span></div>
+                            <div class="flex justify-between text-slate-500"><span>Stok Toko / Gudang</span><span class="font-bold text-slate-800">45 pcs / 120 pcs</span></div>
+                            <div class="flex justify-between items-center text-slate-500"><span>Status Stok</span><span class="badge-available px-3 py-1 rounded-full text-[10px] font-bold">Stok Aman</span></div>
+                            <div class="flex justify-between items-center text-slate-500 pt-1"><span>Aksi</span><div class="flex gap-3 text-slate-400"><img src="assets/icons/eye-open.svg" class="w-4 h-4"><a href="produk-edit.html"><img src="assets/icons/edit-03.svg" class="w-4 h-4"></a><img src="assets/icons/delete-1.svg" class="w-4 h-4"></div></div>
+                        </div>
+                    </div>
+                    <!-- Card 2 -->
+                    <div class="bg-white border border-slate-200 rounded-xl p-3.5 space-y-3">
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center gap-3">
+                                <input type="checkbox" class="rounded border-slate-300">
+                                <img src="assets/image/beras_3x.webp" class="w-10 h-10 object-contain rounded-lg border border-slate-100">
+                                <div>
+                                    <p class="text-[10px] text-slate-400 font-mono">SKU-8991002</p>
+                                    <p class="font-bold text-xs text-slate-800">Beras Premium Sania 5 Kg</p>
                                 </div>
                             </div>
+                            <button class="mobile-accordion-btn p-1 bg-slate-100 rounded-lg text-slate-500"><i class="fa-solid fa-chevron-up transition-transform duration-200"></i></button>
+                        </div>
+                        <div class="mobile-accordion-content border-t border-slate-100 pt-3 space-y-2 text-xs font-medium hidden">
+                            <div class="flex justify-between text-slate-500"><span>Kategori</span><span class="font-bold text-slate-800">Bahan Pokok</span></div>
+                            <div class="flex justify-between text-slate-500"><span>Harga Beli (Modal)</span><span class="text-slate-600">Rp 64.000</span></div>
+                            <div class="flex justify-between text-slate-500"><span>Harga Jual</span><span class="font-bold text-slate-900">Rp 72.000</span></div>
+                            <div class="flex justify-between text-slate-500"><span>Stok Toko / Gudang</span><span class="font-bold text-slate-800">8 pcs / 15 pcs</span></div>
+                            <div class="flex justify-between items-center text-slate-500"><span>Status Stok</span><span class="badge-unpaid px-3 py-1 rounded-full text-[10px] font-bold">Stok Menipis</span></div>
+                            <div class="flex justify-between items-center text-slate-500 pt-1"><span>Aksi</span><div class="flex gap-3 text-slate-400"><img src="assets/icons/eye-open.svg" class="w-4 h-4"><a href="produk-edit.html"><img src="assets/icons/edit-03.svg" class="w-4 h-4"></a><img src="assets/icons/delete-1.svg" class="w-4 h-4"></div></div>
+                        </div>
+                    </div>
+                    <!-- Card 3 -->
+                    <div class="bg-white border border-slate-200 rounded-xl p-3.5 space-y-3">
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center gap-3">
+                                <input type="checkbox" class="rounded border-slate-300">
+                                <img src="assets/image/sabun_3x.webp" class="w-10 h-10 object-contain rounded-lg border border-slate-100">
+                                <div>
+                                    <p class="text-[10px] text-slate-400 font-mono">SKU-8991003</p>
+                                    <p class="font-bold text-xs text-slate-800">Sabun Cair Lifebuoy 450ml</p>
+                                </div>
+                            </div>
+                            <button class="mobile-accordion-btn p-1 bg-slate-100 rounded-lg text-slate-500"><i class="fa-solid fa-chevron-up transition-transform duration-200"></i></button>
+                        </div>
+                        <div class="mobile-accordion-content border-t border-slate-100 pt-3 space-y-2 text-xs font-medium hidden">
+                            <div class="flex justify-between text-slate-500"><span>Kategori</span><span class="font-bold text-slate-800">Sabun & Pembersih</span></div>
+                            <div class="flex justify-between text-slate-500"><span>Harga Beli (Modal)</span><span class="text-slate-600">Rp 18.000</span></div>
+                            <div class="flex justify-between text-slate-500"><span>Harga Jual</span><span class="font-bold text-slate-900">Rp 22.500</span></div>
+                            <div class="flex justify-between text-slate-500"><span>Stok Toko / Gudang</span><span class="font-bold text-slate-800">0 pcs / 0 pcs</span></div>
+                            <div class="flex justify-between items-center text-slate-500"><span>Status Stok</span><span class="badge-outofstock px-3 py-1 rounded-full text-[10px] font-bold">Stok Habis</span></div>
+                            <div class="flex justify-between items-center text-slate-500 pt-1"><span>Aksi</span><div class="flex gap-3 text-slate-400"><img src="assets/icons/eye-open.svg" class="w-4 h-4"><a href="produk-edit.html"><img src="assets/icons/edit-03.svg" class="w-4 h-4"></a><img src="assets/icons/delete-1.svg" class="w-4 h-4"></div></div>
                         </div>
                     </div>
                 </div>
