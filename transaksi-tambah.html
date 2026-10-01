@@ -132,11 +132,15 @@
 
                     <!-- Customer Selector -->
                     <div>
-                        <label class="block text-[11px] font-semibold text-slate-600 mb-1">Pilih Pelanggan / Kasbon</label>
+                        <div class="flex items-center justify-between mb-1">
+                            <label class="block text-[11px] font-semibold text-slate-600">Pilih Pelanggan / Kasbon</label>
+                            <span id="kasbon-badge" class="text-[10px] font-bold text-amber-600 bg-amber-50 border border-amber-200 px-2 py-0.5 rounded-md hidden">Mode Kasbon</span>
+                        </div>
                         <select id="cart-customer-select" class="w-full px-3 py-2 text-xs bg-slate-50 border border-slate-200 rounded-xl font-medium focus:outline-none focus:border-blue-500">
                             <option value="umum">Pembeli Umum (Tunai/QRIS)</option>
                             <option value="kasbon1">Bu Sulastri (Warung Makan) - Limit Kasbon Rp 500.000</option>
                             <option value="kasbon2">Pak Agus Prasetyo - Limit Kasbon Rp 300.000</option>
+                            <option value="kasbon-baru">+ Tambah Data Kasbon / Pelanggan Baru</option>
                         </select>
                     </div>
 
@@ -185,9 +189,61 @@
                     <div class="border-t border-slate-100 pt-3 space-y-3">
                         <label class="block text-[11px] font-semibold text-slate-600">Metode Pembayaran</label>
                         <div class="grid grid-cols-3 gap-2 text-center text-xs font-semibold">
-                            <button id="pay-tunai-btn" class="pay-method-btn py-2 bg-blue-100 text-blue-600 border border-blue-200 rounded-xl">Tunai</button>
-                            <button id="pay-qris-btn" class="pay-method-btn py-2 bg-slate-50 text-slate-600 border border-slate-200 rounded-xl hover:bg-slate-100">QRIS</button>
-                            <button id="pay-kasbon-btn" class="pay-method-btn py-2 bg-slate-50 text-slate-600 border border-slate-200 rounded-xl hover:bg-slate-100">Kasbon</button>
+                            <button id="pay-tunai-btn" type="button" class="pay-method-btn py-2 bg-blue-100 text-blue-600 border border-blue-200 rounded-xl">Tunai</button>
+                            <button id="pay-qris-btn" type="button" class="pay-method-btn py-2 bg-slate-50 text-slate-600 border border-slate-200 rounded-xl hover:bg-slate-100">QRIS</button>
+                            <button id="pay-kasbon-btn" type="button" class="pay-method-btn py-2 bg-slate-50 text-slate-600 border border-slate-200 rounded-xl hover:bg-slate-100 flex items-center justify-center gap-1">
+                                <i class="fa-solid fa-file-invoice-dollar text-[10px]"></i>
+                                <span>Kasbon</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Dynamic Kasbon Input Data Form (Shown when Kasbon is active) -->
+                    <div id="kasbon-form-card" class="bg-amber-50/70 border border-amber-200/80 rounded-2xl p-3.5 space-y-3 hidden transition-all duration-300">
+                        <div class="flex items-center justify-between border-b border-amber-200/60 pb-2">
+                            <div class="flex items-center gap-1.5 text-amber-800 font-bold text-xs">
+                                <i class="fa-solid fa-user-pen text-amber-600"></i>
+                                <span>Data Kasbon & Pelanggan</span>
+                            </div>
+                            <span class="text-[10px] bg-amber-100 text-amber-700 px-2 py-0.5 rounded-full font-semibold">Catat Piutang</span>
+                        </div>
+
+                        <!-- Existing Kasbon Selected Info -->
+                        <div id="existing-kasbon-info" class="text-xs space-y-1.5 bg-white/80 p-2.5 rounded-xl border border-amber-200/50 hidden">
+                            <div class="flex justify-between text-slate-600">
+                                <span>Nama:</span>
+                                <span id="info-nama-pelanggan" class="font-bold text-slate-800">Bu Sulastri</span>
+                            </div>
+                            <div class="flex justify-between text-slate-600">
+                                <span>Sisa Limit:</span>
+                                <span class="font-bold text-emerald-600">Rp 500.000</span>
+                            </div>
+                            <div class="flex justify-between text-slate-600">
+                                <span>Jatuh Tempo:</span>
+                                <input type="date" value="2026-08-20" class="text-[11px] px-2 py-1 bg-amber-50/50 border border-amber-200 rounded-lg text-slate-700 focus:outline-none">
+                            </div>
+                        </div>
+
+                        <!-- New Kasbon Inputs -->
+                        <div id="new-kasbon-fields" class="space-y-2 text-xs">
+                            <div>
+                                <label class="block text-[10px] font-semibold text-amber-900 mb-1">Nama Lengkap Pelanggan *</label>
+                                <input type="text" id="kasbon-nama" placeholder="Contoh: Pak Herman / Mbak Dewi" class="w-full px-3 py-2 text-xs bg-white border border-amber-200 rounded-xl focus:outline-none focus:border-amber-500 text-slate-800">
+                            </div>
+                            <div class="grid grid-cols-2 gap-2">
+                                <div>
+                                    <label class="block text-[10px] font-semibold text-amber-900 mb-1">No. WhatsApp / HP</label>
+                                    <input type="text" id="kasbon-wa" placeholder="08xx-xxxx-xxxx" class="w-full px-3 py-2 text-xs bg-white border border-amber-200 rounded-xl focus:outline-none focus:border-amber-500 text-slate-800">
+                                </div>
+                                <div>
+                                    <label class="block text-[10px] font-semibold text-amber-900 mb-1">Jatuh Tempo *</label>
+                                    <input type="date" id="kasbon-tempo" value="2026-08-25" class="w-full px-3 py-2 text-xs bg-white border border-amber-200 rounded-xl focus:outline-none focus:border-amber-500 text-slate-700">
+                                </div>
+                            </div>
+                            <div>
+                                <label class="block text-[10px] font-semibold text-amber-900 mb-1">Alamat / RT RW / Catatan</label>
+                                <input type="text" id="kasbon-alamat" placeholder="RT 02 / RW 01 (Samping Balai Desa)" class="w-full px-3 py-2 text-xs bg-white border border-amber-200 rounded-xl focus:outline-none focus:border-amber-500 text-slate-800">
+                            </div>
                         </div>
                     </div>
 
@@ -202,15 +258,15 @@
                             <span class="text-slate-800 font-semibold">Rp 0</span>
                         </div>
                         <div class="flex justify-between text-slate-900 font-bold text-sm border-t border-slate-200/60 pt-1.5">
-                            <span>Total Bayar</span>
+                            <span id="total-label">Total Bayar</span>
                             <span id="pos-total" class="text-blue-600 font-extrabold">Rp 40.500</span>
                         </div>
                     </div>
 
                     <!-- Checkout Button -->
-                    <a href="transaksi.html" class="w-full py-3.5 bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs rounded-xl flex items-center justify-center gap-2 shadow-lg shadow-blue-500/20 transition-all">
-                        <i class="fa-solid fa-check-circle"></i>
-                        <span>Proses Transaksi & Cetak Struk</span>
+                    <a id="btn-submit-transaksi" href="transaksi.html" class="w-full py-3.5 bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs rounded-xl flex items-center justify-center gap-2 shadow-lg shadow-blue-500/20 transition-all">
+                        <i id="btn-submit-icon" class="fa-solid fa-check-circle"></i>
+                        <span id="btn-submit-text">Proses Transaksi & Cetak Struk</span>
                     </a>
                 </div>
             </div>
@@ -231,28 +287,55 @@
                 </button>
             </div>
 
-            <!-- Viewfinder Laser Simulation -->
+            <!-- Viewfinder with Real Camera Video Stream -->
             <div class="px-6 py-2">
-                <div class="relative w-full h-48 bg-slate-950 rounded-xl overflow-hidden flex flex-col items-center justify-center border-2 border-emerald-500">
-                    <!-- Red Laser Animation Line -->
-                    <div class="w-full h-0.5 bg-rose-500 shadow-md shadow-rose-500 animate-pulse absolute top-1/2 -translate-y-1/2"></div>
+                <div class="relative w-full h-56 bg-slate-950 rounded-xl overflow-hidden flex flex-col items-center justify-center border-2 border-emerald-500">
+                    <!-- Live Camera Feed -->
+                    <video id="camera-stream" autoplay playsinline muted class="absolute inset-0 w-full h-full object-cover hidden"></video>
 
-                    <i class="fa-solid fa-barcode text-slate-700 text-6xl opacity-30"></i>
-                    <p class="text-[10px] text-emerald-400 font-mono mt-3 z-10">Arahkan barcode ke kotak pemindai...</p>
+                    <!-- Camera Permission / Loading State -->
+                    <div id="camera-placeholder" class="flex flex-col items-center justify-center text-center p-4 z-10 space-y-2">
+                        <i class="fa-solid fa-camera text-slate-600 text-5xl"></i>
+                        <p id="camera-status-text" class="text-xs text-slate-400">Menghubungkan ke kamera perangkat...</p>
+                        <button id="btn-request-cam" class="px-3 py-1.5 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg text-[11px] font-bold hidden">Izinkan Akses Kamera</button>
+                    </div>
+
+                    <!-- Target Scan Box Overlay -->
+                    <div class="absolute inset-0 pointer-events-none flex items-center justify-center">
+                        <div class="w-48 h-32 border-2 border-emerald-400/80 rounded-xl relative shadow-[0_0_0_9999px_rgba(15,23,42,0.45)]">
+                            <!-- Corner accents -->
+                            <div class="absolute -top-1 -left-1 w-3 h-3 border-t-2 border-l-2 border-emerald-300"></div>
+                            <div class="absolute -top-1 -right-1 w-3 h-3 border-t-2 border-r-2 border-emerald-300"></div>
+                            <div class="absolute -bottom-1 -left-1 w-3 h-3 border-b-2 border-l-2 border-emerald-300"></div>
+                            <div class="absolute -bottom-1 -right-1 w-3 h-3 border-b-2 border-r-2 border-emerald-300"></div>
+                            <!-- Red Laser Animation Line -->
+                            <div class="w-full h-0.5 bg-rose-500 shadow-md shadow-rose-500 animate-pulse absolute top-1/2 -translate-y-1/2"></div>
+                        </div>
+                    </div>
+
+                    <!-- Overlay Guide Text -->
+                    <div class="absolute bottom-2 inset-x-0 text-center z-10">
+                        <span class="text-[10px] text-emerald-300 bg-slate-900/80 px-3 py-1 rounded-full font-mono backdrop-blur-xs">
+                            Arahkan barcode ke dalam kotak pemindai
+                        </span>
+                    </div>
                 </div>
             </div>
 
             <!-- Quick Barcode Sample Click -->
             <div class="px-6 pb-6 space-y-2">
-                <p class="text-[11px] font-semibold text-slate-600">Simulasi Barcode Produk:</p>
+                <div class="flex items-center justify-between text-[11px]">
+                    <span class="font-semibold text-slate-600">Simulasi / Uji Coba Cepat:</span>
+                    <span class="text-[10px] text-slate-400">Klik untuk deteksi instan</span>
+                </div>
                 <div class="grid grid-cols-2 gap-2 text-xs">
-                    <button class="sim-scan-btn p-2 bg-slate-100 hover:bg-blue-50 border border-slate-200 rounded-lg text-left" data-barcode="SKU-8991001">
-                        <p class="font-bold text-slate-800 text-[11px]">Minyak Sania</p>
-                        <p class="text-[9px] text-slate-400 font-mono">SKU-8991001</p>
+                    <button class="sim-scan-btn p-2.5 bg-slate-50 hover:bg-blue-50 border border-slate-200 hover:border-blue-300 rounded-xl text-left transition-all" data-barcode="SKU-8991001">
+                        <p class="font-bold text-slate-800 text-[11px]">Minyak Sania 1L</p>
+                        <p class="text-[9px] text-blue-600 font-mono">SKU-8991001</p>
                     </button>
-                    <button class="sim-scan-btn p-2 bg-slate-100 hover:bg-blue-50 border border-slate-200 rounded-lg text-left" data-barcode="SKU-8991004">
+                    <button class="sim-scan-btn p-2.5 bg-slate-50 hover:bg-blue-50 border border-slate-200 hover:border-blue-300 rounded-xl text-left transition-all" data-barcode="SKU-8991004">
                         <p class="font-bold text-slate-800 text-[11px]">Taro Net 65g</p>
-                        <p class="text-[9px] text-slate-400 font-mono">SKU-8991004</p>
+                        <p class="text-[9px] text-blue-600 font-mono">SKU-8991004</p>
                     </button>
                 </div>
             </div>
@@ -263,20 +346,161 @@
         $(document).ready(function() {
             initDashboardLayout('transaksi');
 
+            // Camera Barcode Scanner Logic with Real Camera (WebRTC getUserMedia)
+            let videoStream = null;
+            const videoElem = document.getElementById('camera-stream');
+
+            function startCamera() {
+                $('#camera-placeholder').removeClass('hidden');
+                $('#camera-status-text').text('Menghubungkan ke kamera perangkat...');
+                $('#btn-request-cam').addClass('hidden');
+                $('#camera-stream').addClass('hidden');
+
+                if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+                    navigator.mediaDevices.getUserMedia({
+                        video: { facingMode: 'environment', width: { ideal: 1280 }, height: { ideal: 720 } }
+                    })
+                    .then(function(stream) {
+                        videoStream = stream;
+                        videoElem.srcObject = stream;
+                        videoElem.onloadedmetadata = function() {
+                            videoElem.play();
+                            $('#camera-placeholder').addClass('hidden');
+                            $('#camera-stream').removeClass('hidden');
+                        };
+                    })
+                    .catch(function(err) {
+                        console.warn('Camera access error:', err);
+                        $('#camera-status-text').html('<span class="text-rose-400 font-semibold">Izin kamera belum aktif atau tidak tersedia.</span><br><span class="text-[10px] text-slate-500">Gunakan tombol uji coba cepat di bawah atau klik tombol izinkan.</span>');
+                        $('#btn-request-cam').removeClass('hidden');
+                    });
+                } else {
+                    $('#camera-status-text').html('<span class="text-amber-400 font-semibold">Perangkat tidak mendukung akses kamera langsung.</span><br><span class="text-[10px] text-slate-500">Silakan gunakan tombol simulasi barcode di bawah.</span>');
+                }
+            }
+
+            function stopCamera() {
+                if (videoStream) {
+                    videoStream.getTracks().forEach(track => track.stop());
+                    videoStream = null;
+                }
+                if (videoElem) {
+                    videoElem.srcObject = null;
+                }
+                $('#camera-stream').addClass('hidden');
+                $('#camera-placeholder').removeClass('hidden');
+            }
+
             // Barcode Scanner Modal Toggle
             $('#open-scanner-btn').on('click', function() {
                 $('#scanner-modal').removeClass('hidden');
+                startCamera();
             });
 
             $('#close-scanner-btn').on('click', function() {
                 $('#scanner-modal').addClass('hidden');
+                stopCamera();
+            });
+
+            $('#btn-request-cam').on('click', function() {
+                startCamera();
             });
 
             // Simulated Barcode Click Add
             $('.sim-scan-btn').on('click', function() {
                 const code = $(this).data('barcode');
-                alert('Barcode terdeteksi: ' + code + '! Produk otomatis ditambahkan ke keranjang.');
+                let productName = "Minyak Goreng Sania 1L";
+                let productPrice = 17500;
+                let productImg = "assets/image/minyak_3x.webp";
+
+                if (code === 'SKU-8991004') {
+                    productName = "Snack Taro Net 65g";
+                    productPrice = 5500;
+                    productImg = "assets/image/taro_3x.webp";
+                }
+
+                // Add to cart directly
+                addProductToCart(productName, productPrice, productImg);
+                alert('✓ Barcode ' + code + ' Berhasil Dipindai!\nProduk ' + productName + ' telah ditambahkan ke keranjang.');
                 $('#scanner-modal').addClass('hidden');
+                stopCamera();
+            });
+
+            function updateCartTotals() {
+                let total = 0;
+                $('#cart-items-container .cart-item').each(function() {
+                    const priceText = $(this).find('.item-subtotal').text().replace(/[^0-9]/g, '');
+                    const subtotal = parseInt(priceText) || 0;
+                    total += subtotal;
+                });
+                const formatted = 'Rp ' + total.toLocaleString('id-ID');
+                $('#pos-subtotal').text(formatted);
+                $('#pos-total').text(formatted);
+            }
+
+            function addProductToCart(name, price, img) {
+                // Check if product already in cart
+                let existingItem = null;
+                $('#cart-items-container .cart-item').each(function() {
+                    if ($(this).find('.font-bold.text-xs.truncate').text() === name) {
+                        existingItem = $(this);
+                    }
+                });
+
+                if (existingItem) {
+                    const qtyElem = existingItem.find('.qty-val');
+                    let qty = parseInt(qtyElem.text()) + 1;
+                    qtyElem.text(qty);
+                    const sub = qty * price;
+                    existingItem.find('.item-subtotal').text('Rp ' + sub.toLocaleString('id-ID'));
+                } else {
+                    const cartHtml = `
+                        <div class="cart-item flex items-center justify-between p-2.5 bg-slate-50 rounded-xl border border-slate-100" data-unit-price="${price}">
+                            <div class="flex items-center gap-2.5 min-w-0">
+                                <img src="${img}" class="w-8 h-8 object-contain">
+                                <div class="min-w-0">
+                                    <p class="font-bold text-xs text-slate-800 truncate">${name}</p>
+                                    <p class="text-[10px] text-slate-400 font-semibold">Rp ${price.toLocaleString('id-ID')}</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <div class="flex items-center border border-slate-200 rounded-lg bg-white">
+                                    <button class="qty-minus px-2 py-0.5 text-xs text-slate-600 hover:bg-slate-100">-</button>
+                                    <span class="qty-val px-2 text-xs font-bold text-slate-800">1</span>
+                                    <button class="qty-plus px-2 py-0.5 text-xs text-slate-600 hover:bg-slate-100">+</button>
+                                </div>
+                                <span class="item-subtotal font-bold text-xs text-slate-900 w-16 text-right">Rp ${price.toLocaleString('id-ID')}</span>
+                            </div>
+                        </div>
+                    `;
+                    $('#cart-items-container').append(cartHtml);
+                }
+                updateCartTotals();
+            }
+
+            // Delegate Qty Buttons
+            $('#cart-items-container').on('click', '.qty-plus', function() {
+                const item = $(this).closest('.cart-item');
+                const qtyElem = item.find('.qty-val');
+                let qty = parseInt(qtyElem.text()) + 1;
+                qtyElem.text(qty);
+                const price = parseInt(item.attr('data-unit-price')) || 17500;
+                item.find('.item-subtotal').text('Rp ' + (qty * price).toLocaleString('id-ID'));
+                updateCartTotals();
+            });
+
+            $('#cart-items-container').on('click', '.qty-minus', function() {
+                const item = $(this).closest('.cart-item');
+                const qtyElem = item.find('.qty-val');
+                let qty = parseInt(qtyElem.text()) - 1;
+                if (qty <= 0) {
+                    item.remove();
+                } else {
+                    qtyElem.text(qty);
+                    const price = parseInt(item.attr('data-unit-price')) || 17500;
+                    item.find('.item-subtotal').text('Rp ' + (qty * price).toLocaleString('id-ID'));
+                }
+                updateCartTotals();
             });
 
             // Add Product Card Click to Cart
@@ -284,28 +508,7 @@
                 const name = $(this).data('name');
                 const price = parseInt($(this).data('price'));
                 const img = $(this).data('img');
-
-                const cartHtml = `
-                    <div class="cart-item flex items-center justify-between p-2.5 bg-slate-50 rounded-xl border border-slate-100">
-                        <div class="flex items-center gap-2.5 min-w-0">
-                            <img src="${img}" class="w-8 h-8 object-contain">
-                            <div class="min-w-0">
-                                <p class="font-bold text-xs text-slate-800 truncate">${name}</p>
-                                <p class="text-[10px] text-slate-400 font-semibold">Rp ${price.toLocaleString('id-ID')}</p>
-                            </div>
-                        </div>
-                        <div class="flex items-center gap-2">
-                            <div class="flex items-center border border-slate-200 rounded-lg bg-white">
-                                <button class="qty-minus px-2 py-0.5 text-xs text-slate-600 hover:bg-slate-100">-</button>
-                                <span class="qty-val px-2 text-xs font-bold text-slate-800">1</span>
-                                <button class="qty-plus px-2 py-0.5 text-xs text-slate-600 hover:bg-slate-100">+</button>
-                            </div>
-                            <span class="item-subtotal font-bold text-xs text-slate-900 w-16 text-right">Rp ${price.toLocaleString('id-ID')}</span>
-                        </div>
-                    </div>
-                `;
-
-                $('#cart-items-container').append(cartHtml);
+                addProductToCart(name, price, img);
             });
 
             // Clear Cart
@@ -315,10 +518,94 @@
                 $('#pos-total').text('Rp 0');
             });
 
+            // Function to activate Kasbon mode
+            function setKasbonMode(isKasbon) {
+                if (isKasbon) {
+                    $('#kasbon-badge').removeClass('hidden');
+                    $('#kasbon-form-card').removeClass('hidden');
+                    $('#total-label').text('Total Kasbon / Utang');
+                    $('#pos-total').removeClass('text-blue-600').addClass('text-amber-600');
+                    $('#btn-submit-transaksi').removeClass('bg-blue-600 hover:bg-blue-700 shadow-blue-500/20')
+                                              .addClass('bg-amber-600 hover:bg-amber-700 shadow-amber-500/20');
+                    $('#btn-submit-icon').removeClass('fa-check-circle').addClass('fa-file-signature');
+                    $('#btn-submit-text').text('Simpan Transaksi Kasbon');
+
+                    // Highlight Kasbon tab
+                    $('.pay-method-btn').removeClass('bg-blue-100 text-blue-600 border-blue-200 bg-amber-100 text-amber-700 border-amber-300').addClass('bg-slate-50 text-slate-600 border-slate-200');
+                    $('#pay-kasbon-btn').addClass('bg-amber-100 text-amber-700 border-amber-300 font-bold').removeClass('bg-slate-50 text-slate-600 border-slate-200');
+
+                    // If existing customer selected
+                    const custVal = $('#cart-customer-select').val();
+                    if (custVal === 'kasbon1') {
+                        $('#info-nama-pelanggan').text('Bu Sulastri (Warung Makan)');
+                        $('#existing-kasbon-info').removeClass('hidden');
+                        $('#new-kasbon-fields').addClass('hidden');
+                    } else if (custVal === 'kasbon2') {
+                        $('#info-nama-pelanggan').text('Pak Agus Prasetyo');
+                        $('#existing-kasbon-info').removeClass('hidden');
+                        $('#new-kasbon-fields').addClass('hidden');
+                    } else {
+                        $('#existing-kasbon-info').addClass('hidden');
+                        $('#new-kasbon-fields').removeClass('hidden');
+                        if (custVal === 'umum') {
+                            $('#cart-customer-select').val('kasbon-baru');
+                        }
+                    }
+                } else {
+                    $('#kasbon-badge').addClass('hidden');
+                    $('#kasbon-form-card').addClass('hidden');
+                    $('#total-label').text('Total Bayar');
+                    $('#pos-total').removeClass('text-amber-600').addClass('text-blue-600');
+                    $('#btn-submit-transaksi').removeClass('bg-amber-600 hover:bg-amber-700 shadow-amber-500/20')
+                                              .addClass('bg-blue-600 hover:bg-blue-700 shadow-blue-500/20');
+                    $('#btn-submit-icon').removeClass('fa-file-signature').addClass('fa-check-circle');
+                    $('#btn-submit-text').text('Proses Transaksi & Cetak Struk');
+
+                    if ($('#cart-customer-select').val() === 'kasbon-baru') {
+                        $('#cart-customer-select').val('umum');
+                    }
+                }
+            }
+
+            // Customer Select Change
+            $('#cart-customer-select').on('change', function() {
+                const val = $(this).val();
+                if (val === 'kasbon1' || val === 'kasbon2' || val === 'kasbon-baru') {
+                    setKasbonMode(true);
+                } else {
+                    // Back to Tunai
+                    $('.pay-method-btn').removeClass('bg-blue-100 text-blue-600 border-blue-200 bg-amber-100 text-amber-700 border-amber-300').addClass('bg-slate-50 text-slate-600 border-slate-200');
+                    $('#pay-tunai-btn').addClass('bg-blue-100 text-blue-600 border-blue-200');
+                    setKasbonMode(false);
+                }
+            });
+
             // Payment Methods Click
             $('.pay-method-btn').on('click', function() {
-                $('.pay-method-btn').removeClass('bg-blue-100 text-blue-600 border-blue-200').addClass('bg-slate-50 text-slate-600 border-slate-200');
-                $(this).addClass('bg-blue-100 text-blue-600 border-blue-200').removeClass('bg-slate-50 text-slate-600 border-slate-200');
+                const id = $(this).attr('id');
+                if (id === 'pay-kasbon-btn') {
+                    setKasbonMode(true);
+                } else {
+                    setKasbonMode(false);
+                    $('.pay-method-btn').removeClass('bg-blue-100 text-blue-600 border-blue-200 bg-amber-100 text-amber-700 border-amber-300').addClass('bg-slate-50 text-slate-600 border-slate-200');
+                    $(this).addClass('bg-blue-100 text-blue-600 border-blue-200').removeClass('bg-slate-50 text-slate-600 border-slate-200');
+                }
+            });
+
+            // Submit Button validation & notification
+            $('#btn-submit-transaksi').on('click', function(e) {
+                if ($('#pay-kasbon-btn').hasClass('bg-amber-100')) {
+                    const custVal = $('#cart-customer-select').val();
+                    if (custVal === 'kasbon-baru') {
+                        const nama = $('#kasbon-nama').val().trim();
+                        if (!nama) {
+                            e.preventDefault();
+                            alert('Silakan masukkan nama pelanggan untuk kasbon baru terlebih dahulu.');
+                            $('#kasbon-nama').focus();
+                            return false;
+                        }
+                    }
+                }
             });
         });
     </script>

@@ -70,7 +70,6 @@ circo-smart-retail-management-system/
 ├── index.html
 ├── laporan.html
 ├── login.html
-├── pelanggan-tambah.html
 ├── pelanggan.html
 ├── produk-edit.html
 ├── produk-tambah.html
