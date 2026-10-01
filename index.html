@@ -83,12 +83,13 @@
                 </a>
 
                 <!-- Desktop Navigation Menu -->
-                <nav class="hidden md:flex items-center gap-8 lg:gap-10 text-[15px] font-medium text-brand-black">
-                    <a href="index.html" class="text-brand-green font-semibold transition-colors">Beranda</a>
-                    <a href="#fitur" class="hover:text-brand-green text-gray-600 transition-colors">Produk</a>
-                    <a href="#kenapa" class="hover:text-brand-green text-gray-600 transition-colors">FAQ</a>
-                    <a href="#testimoni" class="hover:text-brand-green text-gray-600 transition-colors">Blog</a>
-                    <a href="#footer" class="hover:text-brand-green text-gray-600 transition-colors">Tentang Kami</a>
+                <nav class="hidden md:flex items-center gap-7 lg:gap-9 text-[15px] font-medium text-brand-black">
+                    <a href="#beranda" class="nav-link text-brand-green font-semibold transition-colors">Beranda</a>
+                    <a href="#solusi" class="nav-link hover:text-brand-green text-gray-600 transition-colors">Solusi</a>
+                    <a href="#fitur" class="nav-link hover:text-brand-green text-gray-600 transition-colors">Fitur</a>
+                    <a href="#kenapa" class="nav-link hover:text-brand-green text-gray-600 transition-colors">Keunggulan</a>
+                    <a href="#testimoni" class="nav-link hover:text-brand-green text-gray-600 transition-colors">Testimoni</a>
+                    <a href="#footer" class="nav-link hover:text-brand-green text-gray-600 transition-colors">Tentang Kami</a>
                 </nav>
 
                 <!-- Desktop Action Buttons -->
@@ -113,11 +114,12 @@
         <!-- Mobile Drawer / Dropdown Menu -->
         <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-gray-100 px-6 pt-2 pb-6 space-y-4 shadow-lg animate-fadeIn">
             <nav class="flex flex-col space-y-3 text-base font-medium">
-                <a href="index.html" class="text-brand-green font-semibold py-1">Beranda</a>
-                <a href="#fitur" class="text-gray-700 hover:text-brand-green py-1">Produk</a>
-                <a href="#kenapa" class="text-gray-700 hover:text-brand-green py-1">FAQ</a>
-                <a href="#testimoni" class="text-gray-700 hover:text-brand-green py-1">Blog</a>
-                <a href="#footer" class="text-gray-700 hover:text-brand-green py-1">Tentang Kami</a>
+                <a href="#beranda" class="nav-link text-brand-green font-semibold py-1">Beranda</a>
+                <a href="#solusi" class="nav-link text-gray-700 hover:text-brand-green py-1">Solusi</a>
+                <a href="#fitur" class="nav-link text-gray-700 hover:text-brand-green py-1">Fitur</a>
+                <a href="#kenapa" class="nav-link text-gray-700 hover:text-brand-green py-1">Keunggulan</a>
+                <a href="#testimoni" class="nav-link text-gray-700 hover:text-brand-green py-1">Testimoni</a>
+                <a href="#footer" class="nav-link text-gray-700 hover:text-brand-green py-1">Tentang Kami</a>
             </nav>
             <div class="pt-4 border-t border-gray-100 flex flex-col gap-3">
                 <a href="login.html" class="w-full text-center text-brand-black font-semibold py-2.5 rounded-xl border border-gray-200 hover:border-brand-green transition">
@@ -131,7 +133,7 @@
     </header>
 
     <!-- ================= HERO SECTION ================= -->
-    <section class="relative py-10 sm:py-16 md:py-20 lg:py-24 my-4 sm:my-8 lg:my-12 overflow-hidden">
+    <section id="beranda" class="relative py-10 sm:py-16 md:py-20 lg:py-24 my-4 sm:my-8 lg:my-12 overflow-hidden scroll-mt-24">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
 
@@ -155,9 +157,9 @@
                         <a href="dashboard.html" class="w-full sm:w-auto bg-brand-green hover:bg-brand-green-hover text-white font-semibold text-base px-8 py-4 rounded-xl shadow-sm hover:shadow-md transition-all duration-200 text-center">
                             Coba Gratis
                         </a>
-                        <a href="#demo" class="w-full sm:w-auto inline-flex items-center justify-center gap-3 text-brand-black hover:text-brand-green font-semibold text-base px-4 py-2 transition-colors group">
+                        <a href="#fitur" class="w-full sm:w-auto inline-flex items-center justify-center gap-3 text-brand-black hover:text-brand-green font-semibold text-base px-4 py-2 transition-colors group">
                             <img src="assets/icons/Play.svg" alt="Play" class="w-10 h-10 transition-transform group-hover:scale-105" />
-                            <span>Lihat Demo Website</span>
+                            <span>Lihat Fitur Produk</span>
                         </a>
                     </div>
                 </div>
@@ -174,7 +176,7 @@
     </section>
 
     <!-- ================= SECTION: BAGAIMANA CIRCO MEMBANTU TOKOMU MAJU (#F9F8FE) ================= -->
-    <section class="py-16 sm:py-20 md:py-24 lg:py-28 my-8 sm:my-14 md:my-20 lg:my-24 bg-brand-bg-section relative">
+    <section id="solusi" class="py-16 sm:py-20 md:py-24 lg:py-28 my-8 sm:my-14 md:my-20 lg:my-24 bg-brand-bg-section relative scroll-mt-20">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
 
@@ -263,7 +265,7 @@
     </section>
 
     <!-- ================= SECTION: KELOLA TOKO LEBIH PRAKTIS (CARDS - NO WHITE BG) ================= -->
-    <section id="fitur" class="py-12 sm:py-16 md:py-20 lg:py-24 my-8 sm:my-14 md:my-20 lg:my-24 relative">
+    <section id="fitur" class="py-12 sm:py-16 md:py-20 lg:py-24 my-8 sm:my-14 md:my-20 lg:my-24 relative scroll-mt-20">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
             <!-- Section Header -->
@@ -333,7 +335,7 @@
     </section>
 
     <!-- ================= SECTION: KENAPA HARUS CIRCO? ================= -->
-    <section id="kenapa" class="py-12 sm:py-16 md:py-20 lg:py-24 my-8 sm:my-14 md:my-20 lg:my-24 relative">
+    <section id="kenapa" class="py-12 sm:py-16 md:py-20 lg:py-24 my-8 sm:my-14 md:my-20 lg:my-24 relative scroll-mt-20">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
 
@@ -386,7 +388,7 @@
     </section>
 
     <!-- ================= SECTION: KATA MEREKA TENTANG CIRCO (TESTIMONIALS) ================= -->
-    <section id="testimoni" class="py-12 sm:py-16 md:py-20 lg:py-24 my-8 sm:my-14 md:my-20 lg:my-24 relative">
+    <section id="testimoni" class="py-12 sm:py-16 md:py-20 lg:py-24 my-8 sm:my-14 md:my-20 lg:my-24 relative scroll-mt-20">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
             <!-- Green Card Box -->
@@ -547,21 +549,46 @@
                 }
             });
 
-            // Close mobile menu when clicking a link
-            $('#mobile-menu a').on('click', function() {
-                $('#mobile-menu').addClass('hidden');
-                $('#menu-icon').removeClass('fa-xmark').addClass('fa-bars');
+            // Smooth scrolling for anchor links with dynamic navbar height offset
+            $('a[href^="#"]').on('click', function(e) {
+                const targetId = $(this).attr('href');
+                if (targetId && targetId !== '#') {
+                    const target = $(targetId);
+                    if (target.length) {
+                        e.preventDefault();
+                        
+                        // Close mobile menu if open
+                        $('#mobile-menu').addClass('hidden');
+                        $('#menu-icon').removeClass('fa-xmark').addClass('fa-bars');
+
+                        const navHeight = $('#main-navbar').outerHeight() || 80;
+                        const targetOffset = target.offset().top - navHeight + 2;
+
+                        $('html, body').stop().animate({
+                            scrollTop: Math.max(0, targetOffset)
+                        }, 500);
+
+                        // Update URL hash without jump
+                        if (history.pushState) {
+                            history.pushState(null, null, targetId);
+                        }
+                    }
+                }
             });
 
-            // Smooth scrolling for anchor links
-            $('a[href^="#"]').on('click', function(e) {
-                var target = $(this.getAttribute('href'));
-                if (target.length) {
-                    e.preventDefault();
-                    $('html, body').stop().animate({
-                        scrollTop: target.offset().top - 80
-                    }, 600);
-                }
+            // Scrollspy: update active nav link on scroll
+            $(window).on('scroll', function() {
+                const scrollPos = $(window).scrollTop() + ($('#main-navbar').outerHeight() || 80) + 50;
+                $('section[id], footer[id]').each(function() {
+                    const top = $(this).offset().top;
+                    const bottom = top + $(this).outerHeight();
+                    const id = $(this).attr('id');
+
+                    if (scrollPos >= top && scrollPos < bottom) {
+                        $('.nav-link').removeClass('text-brand-green font-semibold').addClass('text-gray-600');
+                        $(`.nav-link[href="#${id}"]`).removeClass('text-gray-600').addClass('text-brand-green font-semibold');
+                    }
+                });
             });
         });
     </script>
